@@ -72,6 +72,9 @@ export const MenuOverlay = ({ isOpen, onClose }: MenuProps) => {
           initial="closed"
           animate="open"
           exit="closed"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
           className="fixed inset-0 z-[100] bg-brand-dark text-brand-paper overflow-hidden flex flex-col"
         >
           {/* Decorative Lines */}
@@ -91,8 +94,10 @@ export const MenuOverlay = ({ isOpen, onClose }: MenuProps) => {
               </div>
               <span className="font-mono text-sm tracking-widest uppercase font-bold">House of Dream Builders</span>
             </div>
-            <button 
+            <button
+              type="button"
               onClick={onClose}
+              aria-label="Close navigation menu"
               className="flex items-center gap-2 group"
             >
               <span className="text-sm font-medium uppercase tracking-wider">Close</span>
@@ -169,13 +174,13 @@ export const MenuOverlay = ({ isOpen, onClose }: MenuProps) => {
                 <div>
                   <p className="text-xs font-mono uppercase tracking-widest text-white/40 mb-4">Socials</p>
                   <div className="flex gap-6">
-                    <a href="#" className="hover:text-brand-accent-pink transition-colors"><Instagram className="w-6 h-6" /></a>
-                    <a href="#" className="hover:text-brand-accent-pink transition-colors"><Linkedin className="w-6 h-6" /></a>
-                    <a href="#" className="hover:text-brand-accent-pink transition-colors"><Twitter className="w-6 h-6" /></a>
+                    <a href="#" aria-label="Follow us on Instagram" className="hover:text-brand-accent-pink transition-colors"><Instagram className="w-6 h-6" /></a>
+                    <a href="#" aria-label="Connect on LinkedIn" className="hover:text-brand-accent-pink transition-colors"><Linkedin className="w-6 h-6" /></a>
+                    <a href="#" aria-label="Follow us on X / Twitter" className="hover:text-brand-accent-pink transition-colors"><Twitter className="w-6 h-6" /></a>
                   </div>
                 </div>
                 <div className="pt-8 md:pt-0">
-                   <p className="text-[10px] uppercase tracking-widest text-white/20">© 2026 House of Dream Builders</p>
+                   <p className="text-[10px] uppercase tracking-widest text-white/40">© 2026 House of Dream Builders</p>
                 </div>
               </div>
             </div>

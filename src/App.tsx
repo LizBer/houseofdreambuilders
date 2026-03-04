@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Navigation, Hero, Services, WhyPartnerWithUs, CaseStudies, Contact, Footer } from "./components/SiteContent";
-import { VideoGenerator } from "./components/VideoGenerator";
-import { motion, useScroll, useSpring } from "motion/react";
+import { Navigation, Hero, Services, WhyPartnerWithUs, Contact, Footer } from "./components/SiteContent";
+import { MotionConfig, motion, useScroll, useSpring } from "motion/react";
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -16,6 +15,7 @@ export default function App() {
   });
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative min-h-screen overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
@@ -46,10 +46,10 @@ export default function App() {
             </div>
             <div className="flex-1 space-y-6">
               <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                AI leadership for <span className="italic underline decoration-brand-accent-pink underline-offset-8">founders</span>.
+                Bespoke AI, built for <span className="italic underline decoration-brand-accent-pink underline-offset-8">you</span>.
               </h2>
               <p className="text-lg text-black/70 leading-relaxed">
-                We are the essential boutique partner for small businesses, closing the gap between powerful AI platforms and real-world business impact.
+                We are the premium boutique partner for ambitious founders and small businesses — designing and building AI systems that deliver craft, precision, and lasting real-world impact.
               </p>
               <button className="flex items-center gap-2 group border border-black rounded-full px-8 py-4 hover:bg-gradient-brand hover:text-white hover:border-transparent transition-all">
                 <span className="text-sm font-medium uppercase tracking-wider text-brand-dark group-hover:text-white">Explore our approach</span>
@@ -63,12 +63,11 @@ export default function App() {
         </section>
 
         <WhyPartnerWithUs />
-        <VideoGenerator />
-        <CaseStudies />
         <Contact />
       </main>
 
       <Footer />
     </div>
+    </MotionConfig>
   );
 }

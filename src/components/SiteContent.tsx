@@ -22,12 +22,15 @@ export const Navigation = () => {
         </div>
         
         <div className="flex items-center gap-8">
-          <button className="hidden md:flex items-center gap-2 group">
+          <button type="button" aria-label="Connect with us" className="hidden md:flex items-center gap-2 group">
             <span className="text-sm font-medium uppercase tracking-wider">Connect</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
-          <button 
+          <button
+            type="button"
             onClick={() => setIsMenuOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={isMenuOpen}
             className="flex items-center gap-2 group"
           >
             <span className="text-sm font-medium uppercase tracking-wider">Menu</span>
@@ -66,8 +69,8 @@ export const Hero = () => {
           className="mb-8 w-24 h-24 md:w-32 md:h-32"
         >
           <img 
-            src="https://storage.googleapis.com/tagger-dev-assets/67c6e033289063002b851415/house-of-dream-builders-logo.png" 
-            alt="Logo" 
+            src="https://storage.googleapis.com/tagger-dev-assets/67c6e033289063002b851415/house-of-dream-builders-logo.png"
+            alt="House of Dream Builders"
             className="w-full h-full object-contain brightness-0 invert"
             referrerPolicy="no-referrer"
           />
@@ -107,7 +110,7 @@ export const Services = () => {
     {
       id: "01",
       title: "AI Consultancy",
-      description: "Strategic guidance for founders to navigate the AI landscape and identify high-impact opportunities.",
+      description: "Strategic guidance to navigate the AI landscape and identify the highest-impact opportunities for your business.",
       capabilities: ["AI Strategy & Roadmap", "Tool Selection & Integration", "Workflow Optimization", "Founder Advisory"],
       color: "from-brand-accent-orange/20 to-brand-accent-pink/20",
       borderColor: "group-hover:border-brand-accent-orange/50",
@@ -307,7 +310,7 @@ export const WhyPartnerWithUs = () => {
               Why Partner <br /> <span className="italic text-gradient">With Us</span>
             </h2>
             <p className="text-xl text-black/60 leading-relaxed max-w-lg">
-              In a world of generic AI solutions, we offer a sanctuary for founders who value craft, precision, and strategic depth.
+              In a world of generic AI solutions, we offer a sanctuary for founders and small businesses who demand craft, precision, and results that last.
             </p>
             <div className="pt-8">
               <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full border border-black/5 bg-brand-paper/50">
@@ -432,11 +435,23 @@ export const Contact = () => {
           
           <form className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="First Name" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
-              <input type="text" placeholder="Last Name" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
+              <div>
+                <label htmlFor="first-name" className="sr-only">First Name</label>
+                <input id="first-name" type="text" placeholder="First Name" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
+              </div>
+              <div>
+                <label htmlFor="last-name" className="sr-only">Last Name</label>
+                <input id="last-name" type="text" placeholder="Last Name" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
+              </div>
             </div>
-            <input type="email" placeholder="Email Address" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
-            <textarea placeholder="Describe your vision" rows={3} className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm resize-none" />
+            <div>
+              <label htmlFor="email" className="sr-only">Email Address</label>
+              <input id="email" type="email" placeholder="Email Address" className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm" />
+            </div>
+            <div>
+              <label htmlFor="vision" className="sr-only">Describe your vision</label>
+              <textarea id="vision" placeholder="Describe your vision" rows={3} className="w-full border-b border-black/10 py-3 focus:border-brand-accent-pink outline-none transition-colors text-sm resize-none" />
+            </div>
             
             <button className="w-full bg-brand-dark text-brand-paper rounded-full py-4 flex items-center justify-center gap-2 group hover:bg-gradient-brand transition-all">
               <span className="font-medium uppercase tracking-wider text-sm">Submit Vision</span>
@@ -458,8 +473,8 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-brand-dark rounded-md flex items-center justify-center p-1">
                 <img 
-                  src="https://storage.googleapis.com/tagger-dev-assets/67c6e033289063002b851415/house-of-dream-builders-logo.png" 
-                  alt="Logo" 
+                  src="https://storage.googleapis.com/tagger-dev-assets/67c6e033289063002b851415/house-of-dream-builders-logo.png"
+                  alt="House of Dream Builders"
                   className="w-full h-full object-contain brightness-0 invert"
                   referrerPolicy="no-referrer"
                 />

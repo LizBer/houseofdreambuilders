@@ -132,7 +132,7 @@ export const VideoGenerator = () => {
                       <p className="text-sm font-medium">API Key Required</p>
                       <p className="text-xs text-brand-paper/40 leading-relaxed">
                         To generate high-quality AI video, you must select a paid Google Cloud API key. 
-                        <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" className="text-brand-accent-pink hover:underline ml-1 inline-flex items-center gap-1">
+                        <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noopener noreferrer" className="text-brand-accent-pink hover:underline ml-1 inline-flex items-center gap-1">
                           Learn about billing <ExternalLink className="w-3 h-3" />
                         </a>
                       </p>
