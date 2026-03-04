@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-dark: #1A1A1A;
+  --color-brand-paper: #FDFCFB;
+  --color-brand-accent-orange: #E67E22;
+  --color-brand-accent-pink: #B53471;
+  --color-brand-accent-purple: #6F1E51;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-paper text-brand-dark font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .font-extended {
+    font-stretch: extra-expanded;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-b from-brand-accent-orange via-brand-accent-pink to-brand-accent-purple;
+  }
+  
+  .bg-gradient-brand {
+    @apply bg-linear-to-b from-brand-accent-orange via-brand-accent-pink to-brand-accent-purple;
+  }
+
+  @keyframes slow-zoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.2); }
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 20s ease-in-out infinite alternate;
+  }
+}
