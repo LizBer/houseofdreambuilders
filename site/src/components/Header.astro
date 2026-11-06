@@ -1,9 +1,12 @@
 ---
-import { site, nav } from '../data/site';
+import { site, nav, kit } from '../data/site';
 import Mark from './Mark.astro';
 import Btn from './Btn.astro';
+// `landing`: a focused landing page keeps only the brand and its own call to action.
+interface Props { landing?: boolean }
+const { landing = false } = Astro.props;
 const path = Astro.url.pathname;
-const isCurrent = (href: string) => path === href || path.startsWith(href);
+const isCurrent = (href: string) => !href.includes('#') && path.startsWith(href);
 ---
 <header class="site-header">
   <a class="brand" href="/" aria-label={`${site.name}, home`}>
@@ -11,11 +14,15 @@ const isCurrent = (href: string) => path === href || path.startsWith(href);
     <span class="brand__name"><span class="brand__full">House of </span>Dreambuilders</span>
   </a>
   <nav class="site-nav" aria-label="Main">
-    <ul>
-      {nav.map((n) => (
-        <li><a class="draw" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a></li>
-      ))}
-    </ul>
-    <Btn href="/systems/edit-starter-kit/" small arrow={false}>Get the kit</Btn>
+    {!landing && (
+      <ul>
+        {nav.map((n) => (
+          <li><a class="draw" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a></li>
+        ))}
+      </ul>
+    )}
+    {landing
+      ? <Btn href={kit.optinUrl} small arrow={false}>Get the free kit</Btn>
+      : <Btn href="/#apply" small arrow={false}>Apply</Btn>}
   </nav>
 </header>

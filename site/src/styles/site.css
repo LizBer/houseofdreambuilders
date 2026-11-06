@@ -295,3 +295,28 @@ html:not(.margin-live) #loader { display: none; }
   a.row:hover .row__name, a.row:focus-visible .row__name { translate: none; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.15em; }
   .btn:hover .btn__arrow { translate: none; }
 }
+
+/* ------------------------------------------------------------------ program fit */
+.fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--gutter); margin-top: 3.5rem; }
+.fit h3 { font-size: var(--t-m); font-weight: 600; line-height: 1.25; margin-bottom: 0.75rem; }
+.fit ul { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.fit li { position: relative; padding-left: 1.6rem; color: var(--muted); }
+.fit li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 0.9rem; height: 0.45rem; border-left: 2px solid var(--accent-text); border-bottom: 2px solid var(--accent-text); rotate: -45deg; }
+.fit__no li::before { width: 0.8rem; height: 2px; border: 0; background: var(--muted); top: 0.75em; rotate: none; }
+@media (max-width: 640px) { .fit { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------------------ free start (lead magnet link) */
+.start { display: grid; gap: 0.4rem; margin-top: 3.5rem; padding: 1.75rem 0; border-top: 2px solid var(--accent); border-bottom: 1px solid hsl(22 40% 12% / 0.2); }
+.start__name { font-size: var(--t-l); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600; transition: translate 0.5s var(--e-soft); }
+.start__line { color: var(--muted); max-width: 34em; }
+@media (hover: hover) { .start:hover .start__name { translate: 0.35em 0; } .start:hover .row__open { clip-path: inset(0 0 0 0); } }
+.start:focus-visible .start__name { translate: 0.35em 0; }
+.start:focus-visible .row__open { clip-path: inset(0 0 0 0); }
+@media (prefers-reduced-motion: reduce) {
+  .start:hover .start__name, .start:focus-visible .start__name { translate: none; text-decoration: underline; text-decoration-color: var(--accent); }
+  .start:hover .row__open, .start:focus-visible .row__open { opacity: 1; }
+}
+
+/* ------------------------------------------------------------------ landing opt-in */
+.optin { display: grid; gap: 0.75rem; max-width: 30rem; margin-top: 2rem; }
+.optin__price { font-family: var(--f-time); font-size: 0.875rem; color: var(--accent-text); }

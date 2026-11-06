@@ -1,9 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import Btn from '../components/Btn.astro';
-import { site, day, products, kit } from '../data/site';
+import { site, day, program, kit } from '../data/site';
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: program.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 ---
 <Base description={site.description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqLd)} />
+
   <!-- HERO: the day on the left, the dream in the margin -->
   <section class="hero" data-margin="4" aria-labelledby="hero-title">
     <div class="grid">
@@ -23,10 +30,10 @@ import { site, day, products, kit } from '../data/site';
       </div>
       <div data-dream>
         <h1 id="hero-title" data-split="lines" data-intro>Build your dream in the margins of a full life</h1>
-        <p class="lead" data-split="lines" data-intro data-delay="0.25">Plug-and-play AI systems and digital products for moms with a full plate and a bigger plan. You do the part only you can do. The system does the long part.</p>
+        <p class="lead" data-split="lines" data-intro data-delay="0.25">Mentorship for moms who want more freedom, purpose and growth, and only have a few hours a week to build it. You do the part only you can do. AI does the long part.</p>
         <div class="actions" data-reveal="fade" data-intro data-delay="0.6">
-          <Btn href="/systems/">See the systems</Btn>
-          <Btn href="/about/" quiet arrow={false}>Lizzy’s story</Btn>
+          <Btn href="#apply">Apply to {program.name}</Btn>
+          <a class="link" href={kit.href}>Or start with the free kit</a>
         </div>
       </div>
     </div>
@@ -41,98 +48,81 @@ import { site, day, products, kit } from '../data/site';
       </div>
       <div data-dream>
         <p class="hand" data-reveal="write">you’re not lazy. your day is just full.</p>
-        <p class="body" style="margin-top:1.25rem" data-reveal="up" data-delay="0.1">So the dream waits for a calmer season that never quite comes. It doesn’t have to. The margin is small, but it’s real, and it can do more than you think.</p>
+        <p class="body" style="margin-top:1.25rem" data-reveal="up" data-delay="0.1">So the dream waits for a calmer season that never quite comes. It doesn’t have to. The margin is small, but it’s real, and with the right method it can carry a whole business.</p>
       </div>
     </div>
   </section>
 
-  <!-- WHAT WE MAKE: index list -->
-  <section class="sec" data-margin="6" aria-labelledby="make-title">
+  <!-- THE PROGRAM -->
+  <section class="sec" data-margin="6" id="method" aria-labelledby="method-title">
     <div class="grid">
       <div data-day>
-        <h2 id="make-title" class="l" data-split="lines">Two kinds of help, both made for small pockets of time</h2>
-        <p class="body" style="margin-top:1.25rem" data-reveal="up"><strong style="color:var(--ink)">AI systems</strong> you set up once and then run every week, on your own computer. <strong style="color:var(--ink)">Digital products</strong> that help you plan, build and grow without starting from a blank page.</p>
+        <p class="label">{program.kind}</p>
+        <p class="hand" style="margin-top:1.25rem" data-reveal="write">built for the hours you actually have</p>
       </div>
       <div data-dream>
-        <ul class="rows" data-reveal="up">
-          {products.map((p) => (
-            <li>
-              {p.href ? (
-                <a class="row" href={p.href}>
-                  <span class="row__name">{p.name}<span class="row__open" aria-hidden="true">open</span></span>
-                  <span class="row__meta"><strong>{p.status}</strong> · {p.kind}</span>
-                  <span class="row__line">{p.line}</span>
-                </a>
-              ) : (
-                <div class="row row--soon">
-                  <span class="row__name">{p.name}</span>
-                  <span class="row__meta">{p.status} · {p.kind}</span>
-                  <span class="row__line">{p.line}</span>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        <h2 id="method-title" class="xl" data-split="lines">{program.name}</h2>
+        <p class="lead" style="margin-top:1.5rem;color:var(--ink)" data-reveal="up">{program.promise}</p>
+        <p class="body" style="margin-top:1.25rem" data-reveal="up" data-delay="0.08">Most business advice assumes you have whole days. You have evenings, lunch breaks and the ten minutes after drop-off. {program.name} is mentorship built for that reality: a clear plan for your hours, one offer worth building, and AI systems that take the repeating work off your plate.</p>
       </div>
     </div>
   </section>
 
-  <!-- THE KIT: before / after -->
-  <section class="sec" data-margin="8" aria-labelledby="kit-title">
+  <!-- PHASES: a real sequence -->
+  <section class="sec sec--tight" data-margin="8" aria-labelledby="phases-title">
     <div class="grid">
       <div data-day>
-        <div class="before" data-reveal="up">
-          <p class="label">Before</p>
-          <p class="l" style="margin-top:.5rem">Camera roll</p>
-          <p style="margin-top:.5rem">Raw, uncut, waiting for a free evening.</p>
-        </div>
-      </div>
-      <div data-dream>
-        <p class="label">After · {kit.name}</p>
-        <h2 id="kit-title" class="xl" style="margin-top:1rem" data-split="lines">Ready to post, in your own style</h2>
-        <p class="lead" style="margin-top:1.5rem" data-reveal="up">{kit.promise}</p>
-        <ul class="outcomes">
-          {kit.outcomes.map((o, i) => (
-            <li data-reveal="up" data-delay={String(i * 0.06)}><h3>{o.title}</h3><p>{o.text}</p></li>
-          ))}
-        </ul>
-        <div class="actions" style="margin-top:2.5rem">
-          <Btn href="/systems/edit-starter-kit/">See the Edit Starter Kit</Btn>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT IT ASKS OF YOU: a real sequence -->
-  <section class="sec sec--tight" data-margin="8" aria-labelledby="steps-title">
-    <div class="grid">
-      <div data-day>
-        <h2 id="steps-title" class="label">What plug and play asks of you</h2>
+        <h2 id="phases-title" class="label">What we build together</h2>
       </div>
       <div data-dream>
         <ol class="steps">
-          {kit.steps.map((s, i) => (
+          {program.phases.map((s, i) => (
             <li data-reveal="write" data-delay={String(i * 0.08)}>
               <h3>{s.title}</h3>
-              <span class="time">{s.cost}</span>
+              <span class="time">{s.tag}</span>
+              <p>{s.text}</p>
             </li>
           ))}
         </ol>
-        <p class="body" style="margin-top:1.5rem">That’s the whole routine. It runs in the Claude app on your computer, with nothing to install by hand. <a class="link" href="/systems/edit-starter-kit/">See how the kit works</a></p>
       </div>
     </div>
   </section>
 
-  <!-- LIZZY: a letter in the margin -->
+  <!-- INCLUDED + FIT -->
+  <section class="sec" data-margin="8" aria-labelledby="inc-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Inside the program</p>
+      </div>
+      <div data-dream>
+        <h2 id="inc-title" class="l" data-split="lines">Support that fits around your family, not on top of it</h2>
+        <ul class="ticks" style="margin-top:2.5rem">
+          {program.included.map((x, i) => <li data-reveal="up" data-delay={String((i % 2) * 0.06)}><h3>{x.title}</h3><p>{x.text}</p></li>)}
+        </ul>
+        <div class="fit">
+          <div data-reveal="up">
+            <h3>This is for you if</h3>
+            <ul>{program.forYou.map((t) => <li>{t}</li>)}</ul>
+          </div>
+          <div data-reveal="up" data-delay="0.06">
+            <h3>It’s not for you if</h3>
+            <ul class="fit__no">{program.notForYou.map((t) => <li>{t}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIZZY -->
   <section class="sec" data-margin="10" aria-labelledby="note-title">
     <div class="grid">
       <div data-day>
-        <p class="label">From the founder</p>
+        <p class="label">Your mentor</p>
       </div>
       <div data-dream>
         <div class="letter">
           <h2 id="note-title" class="m" data-split="lines">Hi, I’m Lizzy. I’m a mom with a full-time job, building a business of my own.</h2>
-          <p class="body" data-reveal="up">I recorded plenty of videos and posted very few, because editing took the hour I didn’t have. So I built the system I wished existed, one that already knows how I like my captions, my colours and my pace. House of Dreambuilders is where I share those systems with every mom building something in the little time she has.</p>
+          <p class="body" data-reveal="up">I know the evening slump, the half-edited videos and the plans that wait for a calmer month. So I built a way of working that fits in the margins, with systems that do the long part. {program.name} is how I teach it, one mom at a time.</p>
           <p class="hand sign" data-reveal="write">rooting for you, Lizzy</p>
           <p style="margin-top:1rem"><a class="link" href="/about/">Read the whole story</a></p>
         </div>
@@ -140,15 +130,37 @@ import { site, day, products, kit } from '../data/site';
     </div>
   </section>
 
+  <!-- FAQ + free start -->
+  <section class="sec" data-margin="10" aria-labelledby="faq-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Questions</p>
+      </div>
+      <div data-dream>
+        <h2 id="faq-title" class="l" data-split="lines">Before you apply</h2>
+        <div class="faq">
+          {program.faq.map((f, i) => (
+            <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </div>
+        <a class="start" href={kit.href} data-reveal="up">
+          <span class="label">Not ready yet?</span>
+          <span class="start__name">Start with the free {kit.name}<span class="row__open" aria-hidden="true">open</span></span>
+          <span class="start__line">Talk to your camera, get finished reels back in your style. A first taste of what AI can take off your plate.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- FINALE: the margin takes the page -->
-  <section class="sec sec--airy finale" data-margin="full" aria-labelledby="end-title">
+  <section class="sec sec--airy finale" data-margin="full" id="apply" aria-labelledby="end-title">
     <div class="grid">
       <div data-dream>
         <h2 id="end-title" class="mega" data-split="lines">Your dream deserves more than what’s left of you</h2>
-        <p class="lead" data-reveal="up">Start with one recording this week. See it come back finished, in your style, before the weekend.</p>
+        <p class="lead" data-reveal="up">Places in {program.name} are limited, so it starts with a short application. Tell me where you are and where you want to be. I read every one.</p>
         <div class="actions" data-reveal="up" data-delay="0.1">
-          <Btn href={site.kitCheckout}>Get the Edit Starter Kit</Btn>
-          <a class="link" href="/systems/">Browse all systems</a>
+          <Btn href={program.applyUrl}>Apply to {program.name}</Btn>
+          <a class="link" href={kit.href}>Get the free kit first</a>
         </div>
       </div>
     </div>

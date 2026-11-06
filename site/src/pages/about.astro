@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Btn from '../components/Btn.astro';
-import { site } from '../data/site';
+import { site, program } from '../data/site';
 ---
-<Base title="About Lizzy" description="Lizzy is a mom with a full-time job who builds simple AI systems for moms building a business in the little time a full life leaves them.">
+<Base title="About Lizzy" description="Lizzy is a mom with a full-time job who mentors moms building a business in the little time a full life leaves them, with AI doing the long part.">
   <section class="hero" data-margin="6" aria-labelledby="about-h1" style="min-height:85svh">
     <div class="grid">
       <div data-day>
@@ -32,7 +32,7 @@ import { site } from '../data/site';
           <p class="body" data-reveal="up">More time with my family. The freedom to decide my own hours. Room to grow where I feel I need to grow.</p>
           <p class="body" data-reveal="up">But I only had a few hours a week, and little energy left in them. I recorded plenty of videos and posted very few, because the editing took the hour I didn’t have.</p>
           <p class="body" data-reveal="up">So I built the editor I wished existed, one that already knows how I like my captions, my colours and my pace.</p>
-          <p class="body" data-reveal="up">Then I turned it into a kit, and the kit into a house: a place for simple systems that do the long, repeating work, so moms like us can spend our few hours on the part only we can do.</p>
+          <p class="body" data-reveal="up">Then I turned what I learned into a house: mentorship and simple systems that do the long, repeating work, so moms like us can spend our few hours on the part only we can do.</p>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@ import { site } from '../data/site';
       <div data-dream>
         <h2 id="about-end" class="xl" data-split="lines">Freedom, purpose and room to grow. One margin at a time.</h2>
         <div class="actions" style="margin-top:2.5rem" data-reveal="up">
-          <Btn href="/systems/">See the systems</Btn>
+          <Btn href="/#apply">Apply to {program.name}</Btn>
           <a class="link" href={`mailto:${site.email}`}>Write to Lizzy</a>
         </div>
       </div>

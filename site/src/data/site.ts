@@ -3,36 +3,63 @@
 // Assumptions and placeholders (every one is listed in the hand-off message too):
 // - `url` is houseofdreambuilders.com, taken from the Privacy/Terms links on the sales page.
 // - `email` is a placeholder address on that domain.
-// - `kitCheckout` is a placeholder: point it at the real checkout or sales page.
+// - `program.name` "The Margin Method" is a proposed name. Rename it here and it changes everywhere.
+// - Program phases, what's included, format and FAQ answers are drafts (`placeholder: true`):
+//   rewrite them to match the real program. Price is deliberately not shown (application first).
+// - `applyUrl` is a placeholder (an email with a subject line). Point it at the real
+//   application form or booking page.
+// - `kit.optinUrl` is a placeholder: point it at the real opt-in form for the free kit.
 // - The kit video is a placeholder slot.
-// - Products marked `placeholder: true` are invented examples of what could come next.
-//   Replace them with real ones or delete them.
-
-export type Product = {
-  slug: string;
-  name: string;
-  kind: 'AI system' | 'Digital product';
-  status: 'Available now' | 'In the workshop';
-  line: string; // one sentence: what it takes off her plate
-  href?: string; // only for available products
-  placeholder?: boolean;
-};
 
 export const site = {
   name: 'House of Dreambuilders',
-  short: 'Dreambuilders',
   founder: 'Lizzy',
   url: 'https://houseofdreambuilders.com',
   description:
-    'Plug-and-play AI systems and digital products for moms building a business in the little time a full life leaves them.',
+    'Mentorship and simple AI systems for moms building a business in the little time a full life leaves them.',
   email: 'hello@houseofdreambuilders.com', // placeholder
-  kitCheckout: '/systems/edit-starter-kit/#get', // placeholder: real checkout URL
   privacy: 'https://houseofdreambuilders.com/privacy',
   terms: 'https://houseofdreambuilders.com/terms',
 };
 
+export const program = {
+  name: 'The Margin Method',
+  kind: 'Business mentorship for moms',
+  promise: 'Turn the few hours you have into a business that gives you your time back.',
+  applyUrl: `mailto:hello@houseofdreambuilders.com?subject=${encodeURIComponent('Applying to The Margin Method')}`, // placeholder
+  placeholder: true,
+  phases: [
+    { tag: 'Your hours', title: 'Find the time you really have', text: 'We map your week as it is, not as it should be, and give every free hour one clear job.' },
+    { tag: 'One offer', title: 'Choose what you build', text: 'One offer for one person you can help, so every hour moves the same thing forward.' },
+    { tag: 'The long part', title: 'Hand the repeating work to AI', text: 'Editing, captions, planning and follow-ups, set up as plug-and-play systems that run on your computer.' },
+    { tag: 'Ten minutes', title: 'Show up without burning out', text: 'A way of making content and selling that fits in ten-minute pockets, so you stay visible in a full week.' },
+  ],
+  included: [
+    { title: 'Mentorship calls', text: 'Live calls where we work on your business, not on theory.' },
+    { title: 'My AI systems, set up with you', text: 'The same plug-and-play systems I use, tuned to your style and your offer.' },
+    { title: 'A room of moms doing the same', text: 'A small private community, so you’re never building alone at 21:12.' },
+    { title: 'Help between calls', text: 'Questions answered while they still matter, not two weeks later.' },
+  ],
+  forYou: [
+    'You work full time, or your days are full of family, and you still feel the pull to build something of your own.',
+    'You have ideas, maybe even a started business, but the time keeps getting eaten.',
+    'You want freedom, purpose and room to grow, and you’re willing to do the part only you can do.',
+  ],
+  notForYou: [
+    'You’re looking for a get-rich-quick scheme.',
+    'You want someone else to build the business for you.',
+    'You’re not ready to give it a few focused hours a week.',
+  ],
+  faq: [
+    { q: 'I only have a few hours a week. Is that enough?', a: 'That’s exactly who this is for. The whole method is built around small, focused hours, with AI systems doing the long, repeating work.' },
+    { q: 'Do I need to be good with technology?', a: 'No. The systems are plug and play. If you can open a folder and type a sentence, you can use them, and we set them up together.' },
+    { q: 'I don’t have a business yet. Can I still apply?', a: 'Yes. Part of the work is choosing the one offer worth building. Tell me where you are in the application.' },
+    { q: 'How much does it cost?', a: 'It’s a high-touch program with limited places. We talk about the investment on the call, once we both know it’s the right fit.' },
+  ],
+};
+
 export const nav = [
-  { label: 'Systems', href: '/systems/' },
+  { label: program.name, href: '/#method' },
   { label: 'About', href: '/about/' },
 ];
 
@@ -45,35 +72,11 @@ export const day = [
   { time: '21:12', text: 'The house goes quiet', margin: true },
 ];
 
-export const products: Product[] = [
-  {
-    slug: 'edit-starter-kit',
-    name: 'Edit Starter Kit',
-    kind: 'AI system',
-    status: 'Available now',
-    line: 'Turns your raw recordings into cut, captioned reels in your own look.',
-    href: '/systems/edit-starter-kit/',
-  },
-  {
-    slug: 'caption-planner',
-    name: 'Week of Posts',
-    kind: 'AI system',
-    status: 'In the workshop',
-    line: 'Turns one voice note into a week of captions and a posting plan.',
-    placeholder: true,
-  },
-  {
-    slug: 'margin-planner',
-    name: 'The Margin Planner',
-    kind: 'Digital product',
-    status: 'In the workshop',
-    line: 'A printable week that finds the hours you actually have, and gives each one a job.',
-    placeholder: true,
-  },
-];
-
 export const kit = {
   name: 'Edit Starter Kit',
+  href: '/edit-starter-kit/',
+  optinUrl: '#get', // placeholder: real opt-in form
+  price: 'Free',
   promise: 'Record yourself talking. Get finished reels back in your own style, ready to post.',
   outcomes: [
     { title: 'Posted, even in busy weeks', text: 'A week of recordings goes in. A week of finished reels comes out, even when you only had ten minutes.' },

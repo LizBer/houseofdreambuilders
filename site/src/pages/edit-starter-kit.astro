@@ -1,38 +1,34 @@
 ---
-import Base from '../../layouts/Base.astro';
-import Btn from '../../components/Btn.astro';
-import { site, kit } from '../../data/site';
+import Base from '../layouts/Base.astro';
+import Btn from '../components/Btn.astro';
+import { site, kit, program } from '../data/site';
 const productLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: kit.name,
   description: kit.promise,
   brand: { '@type': 'Brand', name: site.name },
-  url: new URL('/systems/edit-starter-kit/', site.url).href,
-};
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: kit.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  url: new URL(kit.href, site.url).href,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 };
 ---
-<Base title="Edit Starter Kit" description="Record yourself talking. Get finished reels back in your own style, ready to post. The editing runs on your own computer, and nothing is uploaded." jsonLd={productLd}>
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqLd)} />
+<Base title={`${kit.name} (free)`} description="Free Edit Starter Kit: record yourself talking and get finished reels back in your own style, ready to post. The editing runs on your own computer." jsonLd={productLd} landing>
   <section class="hero" data-margin="6" aria-labelledby="kit-h1">
     <div class="grid">
       <div data-day>
-        <p class="label" data-reveal="fade" data-intro>AI system · Available now</p>
+        <p class="label" data-reveal="fade" data-intro>For moms building a business around their family</p>
         <div class="before" style="margin-top:2rem" data-reveal="write" data-intro data-delay="0.4">
           <p class="label">Without it</p>
           <p style="margin-top:.4rem">Cutting breaths, fixing stumbles and typing captions by hand, after bedtime, for every single reel.</p>
         </div>
+        <p class="hand" style="margin-top:1.5rem" data-reveal="write" data-intro data-delay="0.7">started editing and ran out of energy halfway? this is for you.</p>
       </div>
       <div data-dream>
-        <h1 id="kit-h1" class="xl" data-split="lines" data-intro>Edit Starter Kit</h1>
+        <h1 id="kit-h1" class="xl" data-split="lines" data-intro>Finished reels, without giving up your evenings to editing</h1>
         <p class="lead" data-split="lines" data-intro data-delay="0.2">{kit.promise} The pauses, retakes and mistakes are gone when you get it back.</p>
-        <div class="actions" style="margin-top:2rem" data-reveal="fade" data-intro data-delay="0.5">
-          <Btn href="#get">Get the kit</Btn>
-          <a class="link" href="#faq">Read the questions first</a>
+        <div class="optin" data-reveal="fade" data-intro data-delay="0.5">
+          <span class="optin__price">{kit.price} · set up in about ten minutes</span>
+          <div class="actions"><Btn href={kit.optinUrl}>Get the free kit</Btn></div>
         </div>
       </div>
     </div>
@@ -49,6 +45,20 @@ const faqLd = {
         <div class="video" data-reveal="write">
           <p class="video__slot"><span class="time">06:10 → 21:12</span><span>One raw take in, one finished reel out. The walkthrough video goes here.</span></p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="8" aria-labelledby="out-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">What changes</p>
+      </div>
+      <div data-dream>
+        <h2 id="out-title" class="l" data-split="lines">Keep posting without adding to your day</h2>
+        <ul class="outcomes">
+          {kit.outcomes.map((o, i) => <li data-reveal="up" data-delay={String(i * 0.06)}><h3>{o.title}</h3><p>{o.text}</p></li>)}
+        </ul>
       </div>
     </div>
   </section>
@@ -90,6 +100,21 @@ const faqLd = {
     </div>
   </section>
 
+  <section class="sec" data-margin="10" aria-labelledby="story-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Why I made it</p>
+      </div>
+      <div data-dream>
+        <div class="letter">
+          <h2 id="story-title" class="m" data-split="lines">I recorded plenty of videos and posted very few.</h2>
+          <p class="body" data-reveal="up">Editing took the hour I didn’t have. So I built the editor I wished existed, one that already knows how I like my captions, my colours and my pace. Now it’s yours, free.</p>
+          <p class="hand sign" data-reveal="write">rooting for you, Lizzy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" data-margin="10" id="faq" aria-labelledby="faq-title">
     <div class="grid">
       <div data-day>
@@ -98,9 +123,7 @@ const faqLd = {
       <div data-dream>
         <h2 id="faq-title" class="l" data-split="lines">What moms ask before they start</h2>
         <div class="faq">
-          {kit.faq.map((f, i) => (
-            <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
-          ))}
+          {kit.faq.map((f, i) => <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>)}
         </div>
       </div>
     </div>
@@ -112,10 +135,10 @@ const faqLd = {
         <h2 id="get-title" class="mega" data-split="lines">Record something today</h2>
         <p class="lead" data-reveal="up">See it back finished, in your style, before the week is over.</p>
         <div class="actions" data-reveal="up" data-delay="0.1">
-          <!-- PLACEHOLDER: point site.kitCheckout at the real checkout. -->
-          <Btn href={site.kitCheckout}>Get the Edit Starter Kit</Btn>
-          <p class="hand" style="font-size:1.6rem">you’re exactly who this is for</p>
+          <!-- PLACEHOLDER: point kit.optinUrl at the real opt-in form. -->
+          <Btn href={kit.optinUrl}>Get the free kit</Btn>
         </div>
+        <p class="body" style="margin-top:2.5rem">Want help building the whole business, not just the reels? <a class="link" href="/#method">See {program.name}</a></p>
       </div>
     </div>
   </section>

@@ -13,9 +13,10 @@ interface Props {
   description?: string;
   image?: string;
   jsonLd?: Record<string, unknown>;
+  landing?: boolean;
 }
-const { title, description = site.description, image = '/og.png', jsonLd } = Astro.props;
-const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | AI systems for moms building in the margins`;
+const { title, description = site.description, image = '/og.png', jsonLd, landing = false } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Mentorship for moms building in the margins`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
 const ogImage = new URL(image, Astro.site ?? site.url).href;
 const org = {
@@ -73,7 +74,7 @@ const org = {
     <div id="margin" transition:persist="margin" aria-hidden="true"><div class="margin__field"></div></div>
     <div id="curtain" transition:persist="curtain" aria-hidden="true"><div class="curtain__panel"><span class="curtain__label" data-curtain-label></span></div></div>
     <Loader />
-    <Header />
+    <Header landing={landing} />
     <main id="main" tabindex="-1">
       <slot />
     </main>
