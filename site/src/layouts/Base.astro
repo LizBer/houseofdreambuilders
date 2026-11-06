@@ -66,7 +66,7 @@ const org = {
         if (!still && matchMedia('(min-width: 900px)').matches) h.classList.add('margin-live');
       })();
     </script>
-    <ClientRouter fallback="swap" />
+    {!import.meta.env.PUBLIC_PREVIEW && <ClientRouter fallback="swap" />}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

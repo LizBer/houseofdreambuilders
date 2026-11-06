@@ -1,6 +1,6 @@
 /* House of Dreambuilders: the page, the day and the margin. */
 
-body { line-height: 1.6; }
+body { line-height: 1.6; background: var(--ground); color: var(--ink); }
 ::selection { background: var(--accent); color: var(--accent-fg); }
 :focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 3px; }
 .skip-link { border-radius: 999px; }
