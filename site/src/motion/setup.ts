@@ -47,8 +47,8 @@ function startMargin() {
     list.forEach((s, i) =>
       ScrollTrigger.create({
         trigger: s,
-        start: i === 0 ? 'top top' : 'top 80%',
-        end: 'bottom 80%',
+        start: i === 0 ? 'top top' : 'top 40%',
+        end: 'bottom 40%',
         onToggle: (self) => self.isActive && active !== s && goTo(s),
       }),
     );
@@ -69,7 +69,10 @@ const clock = (p: number) => {
 
 function loader() {
   // Scale the theatre: the loader plays on desktop only. Phones and reduced motion go straight to the page.
-  if (!live()) document.getElementById('loader')?.remove();
+  // First visit of the session only; later visits go straight in.
+  let seen = false;
+  try { seen = sessionStorage.getItem('hod-loader') === '1'; sessionStorage.setItem('hod-loader', '1'); } catch {}
+  if (!live() || seen) document.getElementById('loader')?.remove();
   setLoaderFormat(clock);
   // The loader folds back into the margin: its left edge travels to the hero's rule.
   setLoaderExit((root) => {
