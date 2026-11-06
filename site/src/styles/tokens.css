@@ -1,0 +1,71 @@
+/* House of Dreambuilders tokens. Palette = the house style of the Edit Starter Kit sales page. */
+
+@font-face {
+  font-family: 'Familjen';
+  src: url('/fonts/familjen-400_700-normal.woff2') format('woff2');
+  font-weight: 400 700; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Caveat';
+  src: url('/fonts/caveat-400_700-normal.woff2') format('woff2');
+  font-weight: 400 700; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Azeret';
+  src: url('/fonts/azeret-100_900-normal.woff2') format('woff2');
+  font-weight: 100 900; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* House palette */
+  --ground: hsl(34 45% 96%);
+  --surface: hsl(32 38% 91%);
+  --input: hsl(36 60% 98%);
+  --line: hsl(30 25% 82%);
+  --muted: hsl(25 18% 38%);
+  --ink: hsl(22 40% 12%);
+  --accent: hsl(27 82% 60%);
+  --accent-fg: hsl(20 45% 7%);
+  --accent-text: hsl(22 78% 38%);
+
+  /* Engine contract names */
+  --c-bg: var(--ground);
+  --c-fg: var(--ink);
+  --c-muted: var(--muted);
+  --c-line: var(--line);
+  --c-accent: var(--accent-text);
+  --c-curtain: var(--surface);
+
+  --f-body: 'Familjen', ui-sans-serif, system-ui, sans-serif;
+  --f-hand: 'Caveat', 'Bradley Hand', cursive;
+  --f-time: 'Azeret', ui-monospace, monospace;
+
+  --t-mega: clamp(3rem, 1rem + 7.5vw, 8.5rem);
+  --t-xl: clamp(2.4rem, 1.3rem + 4.4vw, 5.5rem);
+  --t-l: clamp(1.6rem, 1.2rem + 1.6vw, 2.6rem);
+  --t-m: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+  --t-body: clamp(1.0625rem, 1rem + 0.15vw, 1.125rem);
+  --t-s: 0.875rem;
+  --t-xs: 0.8125rem;
+  --t-hand: clamp(1.6rem, 1.3rem + 0.9vw, 2.2rem);
+
+  --u: clamp(0.5rem, 0.35rem + 0.6vw, 1rem);
+  --gutter: clamp(1rem, 0.6rem + 1.6vw, 2.5rem);
+  --pad: clamp(1.25rem, 0.5rem + 3.2vw, 3.5rem);
+  --header: 4.5rem;
+
+  --rule: 2px;
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-soft: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  --z-gl: 0;
+  --z-margin: 0;
+  --z-content: 1;
+  --z-header: 50;
+  --z-cursor: 80;
+  --z-curtain: 90;
+  --z-loader: 100;
+}

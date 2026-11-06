@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import Btn from '../../components/Btn.astro';
+import { site, kit } from '../../data/site';
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: kit.name,
+  description: kit.promise,
+  brand: { '@type': 'Brand', name: site.name },
+  url: new URL('/systems/edit-starter-kit/', site.url).href,
+};
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: kit.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Base title="Edit Starter Kit" description="Record yourself talking. Get finished reels back in your own style, ready to post. The editing runs on your own computer, and nothing is uploaded." jsonLd={productLd}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqLd)} />
+  <section class="hero" data-margin="6" aria-labelledby="kit-h1">
+    <div class="grid">
+      <div data-day>
+        <p class="label" data-reveal="fade" data-intro>AI system · Available now</p>
+        <div class="before" style="margin-top:2rem" data-reveal="write" data-intro data-delay="0.4">
+          <p class="label">Without it</p>
+          <p style="margin-top:.4rem">Cutting breaths, fixing stumbles and typing captions by hand, after bedtime, for every single reel.</p>
+        </div>
+      </div>
+      <div data-dream>
+        <h1 id="kit-h1" class="xl" data-split="lines" data-intro>Edit Starter Kit</h1>
+        <p class="lead" data-split="lines" data-intro data-delay="0.2">{kit.promise} The pauses, retakes and mistakes are gone when you get it back.</p>
+        <div class="actions" style="margin-top:2rem" data-reveal="fade" data-intro data-delay="0.5">
+          <Btn href="#get">Get the kit</Btn>
+          <a class="link" href="#faq">Read the questions first</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight" data-margin="8" aria-labelledby="video-title">
+    <div class="grid">
+      <div data-day>
+        <h2 id="video-title" class="label">Watch it work</h2>
+        <p class="body" style="margin-top:.75rem">About six minutes, from a raw recording to a finished reel.</p>
+      </div>
+      <div data-dream>
+        <!-- PLACEHOLDER: replace with the real video embed. -->
+        <div class="video" role="img" aria-label="Video coming soon" data-reveal="write">
+          <span class="video__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" /></svg></span>
+          <span class="hand">video coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="8" aria-labelledby="inc-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">What’s included</p>
+      </div>
+      <div data-dream>
+        <h2 id="inc-title" class="l" data-split="lines">Everything you need to post every week, done for you</h2>
+        <ul class="ticks" style="margin-top:2.5rem">
+          {kit.included.map((x, i) => <li data-reveal="up" data-delay={String((i % 2) * 0.06)}><h3>{x.title}</h3><p>{x.text}</p></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight" data-margin="8" aria-labelledby="how-title">
+    <div class="grid">
+      <div data-day>
+        <h2 id="how-title" class="label">How it goes</h2>
+      </div>
+      <div data-dream>
+        <ol class="steps">
+          {kit.steps.map((s, i) => (
+            <li data-reveal="write" data-delay={String(i * 0.08)}>
+              <h3>{s.title}</h3>
+              <span class="time">{s.cost}</span>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="facts">
+          <div data-reveal="up"><h3>What you need</h3><p>{kit.needs}</p></div>
+          <div data-reveal="up" data-delay="0.06"><h3>What you own</h3><p>{kit.owns}</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="10" id="faq" aria-labelledby="faq-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Questions</p>
+      </div>
+      <div data-dream>
+        <h2 id="faq-title" class="l" data-split="lines">What moms ask before they start</h2>
+        <div class="faq">
+          {kit.faq.map((f, i) => (
+            <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--airy finale" data-margin="full" id="get" aria-labelledby="get-title">
+    <div class="grid">
+      <div data-dream>
+        <h2 id="get-title" class="mega" data-split="lines">Record something today</h2>
+        <p class="lead" data-reveal="up">See it back finished, in your style, before the week is over.</p>
+        <div class="actions" data-reveal="up" data-delay="0.1">
+          <!-- PLACEHOLDER: point site.kitCheckout at the real checkout. -->
+          <Btn href={site.kitCheckout}>Get the Edit Starter Kit</Btn>
+          <p class="hand" style="font-size:1.6rem">you’re exactly who this is for</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

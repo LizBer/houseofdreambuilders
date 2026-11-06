@@ -1,0 +1,11 @@
+---
+// First load only: the day is counted up to the quiet hour, then the loader
+// folds back into the margin (motion/setup.ts owns the exit).
+---
+<div id="loader" role="status" aria-label="Loading">
+  <span class="loader__rule" data-loader-rule></span>
+  <div class="loader__inner">
+    <span class="loader__count" data-loader-out data-loader-count>06:10</span>
+    <span class="loader__label" data-loader-out>until the house goes quiet</span>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://houseofdreambuilders.com/sitemap-index.xml

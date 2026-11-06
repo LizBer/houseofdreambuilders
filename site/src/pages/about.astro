@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Btn from '../components/Btn.astro';
+import { site } from '../data/site';
+---
+<Base title="About Lizzy" description="Lizzy is a mom with a full-time job who builds simple AI systems for moms building a business in the little time a full life leaves them.">
+  <section class="hero" data-margin="6" aria-labelledby="about-h1" style="min-height:85svh">
+    <div class="grid">
+      <div data-day>
+        <p class="label" data-reveal="fade" data-intro>About</p>
+        <ol class="schedule" style="margin-top:1rem" aria-label="Lizzy’s weekday">
+          <li data-reveal="write" data-intro data-delay="0.35"><span class="time">09:00</span><span>The job</span></li>
+          <li data-reveal="write" data-intro data-delay="0.44"><span class="time">18:00</span><span>The family</span></li>
+          <li class="is-margin" data-reveal="write" data-intro data-delay="0.53"><span class="time">21:12</span><span>This house</span></li>
+        </ol>
+      </div>
+      <div data-dream>
+        <h1 id="about-h1" class="xl" data-split="lines" data-intro>I built this in the margins too</h1>
+        <p class="lead" data-split="lines" data-intro data-delay="0.2">I’m Lizzy: a mom with a full-time job, building a business of my own in the evenings, like you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="8" aria-labelledby="story-title">
+    <div class="grid">
+      <div data-day>
+        <p class="hand" data-reveal="write">the honest version</p>
+      </div>
+      <div data-dream>
+        <div class="letter">
+          <h2 id="story-title" class="m" data-split="lines">I don’t hate my job. I just want more than it can give me.</h2>
+          <p class="body" data-reveal="up">More time with my family. The freedom to decide my own hours. Room to grow where I feel I need to grow.</p>
+          <p class="body" data-reveal="up">But I only had a few hours a week, and little energy left in them. I recorded plenty of videos and posted very few, because the editing took the hour I didn’t have.</p>
+          <p class="body" data-reveal="up">So I built the editor I wished existed, one that already knows how I like my captions, my colours and my pace.</p>
+          <p class="body" data-reveal="up">Then I turned it into a kit, and the kit into a house: a place for simple systems that do the long, repeating work, so moms like us can spend our few hours on the part only we can do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="10" aria-labelledby="believe-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">What I believe</p>
+      </div>
+      <div data-dream>
+        <h2 id="believe-title" class="sr-only">What I believe</h2>
+        <ul class="ticks">
+          <li data-reveal="up"><h3>Small time is still time</h3><p>Ten minutes, three times a week, builds more than a perfect weekend that never comes.</p></li>
+          <li data-reveal="up" data-delay="0.06"><h3>Supermommy isn’t doing everything</h3><p>It’s knowing what only you can do, and handing the rest to a system.</p></li>
+          <li data-reveal="up"><h3>Your style is yours</h3><p>The tools learn how you look and sound. They never decide it for you.</p></li>
+          <li data-reveal="up" data-delay="0.06"><h3>Your files are yours</h3><p>Everything runs on your own computer, and nothing is uploaded to me.</p></li>
+        </ul>
+        <p class="hand sign" data-reveal="write">rooting for you, Lizzy</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--airy finale" data-margin="full" aria-labelledby="about-end">
+    <div class="grid">
+      <div data-dream>
+        <h2 id="about-end" class="xl" data-split="lines">Freedom, purpose and room to grow. One margin at a time.</h2>
+        <div class="actions" style="margin-top:2.5rem" data-reveal="up">
+          <Btn href="/systems/">See the systems</Btn>
+          <a class="link" href={`mailto:${site.email}`}>Write to Lizzy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

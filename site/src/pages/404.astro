@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Btn from '../components/Btn.astro';
+---
+<Base title="Page not found" description="This page isn’t on today’s schedule. Head back home or browse the systems.">
+  <section class="lost" data-margin="0" aria-labelledby="lost-title">
+    <div class="grid">
+      <div data-day>
+        <ol class="schedule" aria-label="Today">
+          <li><span class="time">--:--</span><span>This page</span></li>
+        </ol>
+        <h1 id="lost-title" class="xl" style="margin-top:2.5rem" data-split="lines" data-intro>Nothing written here yet</h1>
+        <p class="lead" data-reveal="fade" data-intro data-delay="0.3">This page isn’t on today’s schedule. It happens to the best of us, usually between dinner and bath time.</p>
+        <div class="actions" style="margin-top:2rem" data-reveal="fade" data-intro data-delay="0.4">
+          <Btn href="/">Back home</Btn>
+          <a class="link" href="/systems/">Browse the systems</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

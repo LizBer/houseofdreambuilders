@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import Btn from '../../components/Btn.astro';
+import { products } from '../../data/site';
+---
+<Base title="Systems and products" description="Plug-and-play AI systems and digital products for moms building a business in the evenings, the lunch breaks and the ten minutes in between.">
+  <section class="hero" data-margin="6" aria-labelledby="sys-title" style="min-height:80svh">
+    <div class="grid">
+      <div data-day>
+        <p class="label" data-reveal="fade" data-intro>Systems and products</p>
+        <p class="hand" style="margin-top:1.5rem" data-reveal="write" data-intro data-delay="0.5">set up once. then it runs, week after week.</p>
+      </div>
+      <div data-dream>
+        <h1 id="sys-title" class="xl" data-split="lines" data-intro>Everything here is built to fit in the time you actually have</h1>
+        <p class="lead" data-split="lines" data-intro data-delay="0.2">No courses to sit through, no tools to learn from scratch. Each one does a long, repeating job for you, so the hours you do have go into the dream.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight" data-margin="6" aria-labelledby="list-title">
+    <div class="grid">
+      <div data-day>
+        <h2 id="list-title" class="label">In the house</h2>
+        <p class="body" style="margin-top:.75rem">One is ready today. The others are being built and tested first, the same way: by a mom with a full-time job.</p>
+      </div>
+      <div data-dream>
+        <ul class="rows">
+          {products.map((p, i) => (
+            <li data-reveal="write" data-delay={String(i * 0.08)}>
+              {p.href ? (
+                <a class="row" href={p.href}>
+                  <span class="row__name">{p.name}<span class="row__open" aria-hidden="true">open</span></span>
+                  <span class="row__meta"><strong>{p.status}</strong> · {p.kind}</span>
+                  <span class="row__line">{p.line}</span>
+                </a>
+              ) : (
+                <div class="row row--soon">
+                  <span class="row__name">{p.name}</span>
+                  <span class="row__meta">{p.status} · {p.kind}</span>
+                  <span class="row__line">{p.line}</span>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-margin="8" aria-labelledby="pp-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">What we mean by plug and play</p>
+      </div>
+      <div data-dream>
+        <h2 id="pp-title" class="l" data-split="lines">If it needs a tutorial to use, it isn’t finished yet</h2>
+        <ul class="ticks" style="margin-top:2.5rem">
+          <li data-reveal="up"><h3>Set up in minutes</h3><p>Answer a few questions in plain words. No settings pages, no code.</p></li>
+          <li data-reveal="up" data-delay="0.06"><h3>Runs on your computer</h3><p>Your files stay with you. Nothing is uploaded to us.</p></li>
+          <li data-reveal="up" data-delay="0.12"><h3>Learns your style once</h3><p>Your colours, your words, your pace, kept the same every time.</p></li>
+          <li data-reveal="up" data-delay="0.18"><h3>You approve, it never posts for you</h3><p>You stay in charge of what goes out with your name on it.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--airy finale" data-margin="full" aria-labelledby="sys-end">
+    <div class="grid">
+      <div data-dream>
+        <h2 id="sys-end" class="xl" data-split="lines">Start with the one that gives you evenings back</h2>
+        <div class="actions" style="margin-top:2.5rem" data-reveal="up">
+          <Btn href="/systems/edit-starter-kit/">See the Edit Starter Kit</Btn>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

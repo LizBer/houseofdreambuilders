@@ -1,0 +1,11 @@
+---
+interface Props { href: string; quiet?: boolean; small?: boolean; arrow?: boolean }
+const { href, quiet = false, small = false, arrow = true } = Astro.props;
+---
+<a class:list={['btn', { 'btn--quiet': quiet, 'btn--small': small }]} href={href}>
+  <span class="btn__ink" aria-hidden="true"></span>
+  <slot />
+  {arrow && (
+    <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+  )}
+</a>
