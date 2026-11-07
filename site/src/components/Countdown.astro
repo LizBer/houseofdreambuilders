@@ -1,12 +1,13 @@
 ---
 // Counts down to a fixed deadline. Without JS it shows the end date in words.
 // When the deadline passes, it says so and shows the normal price instead of pretending.
-interface Props { endsAt: string; endsLabel: string; normalPrice: string; size?: 'large' | 'small' }
-const { endsAt, endsLabel, normalPrice, size = 'large' } = Astro.props;
+interface Props { endsAt: string; endsLabel: string; normalPrice: string; size?: 'large' | 'small'; label?: string }
+const { endsAt, endsLabel, normalPrice, size = 'large', label } = Astro.props;
+const text = label ?? (size === 'large' ? `Free until ${endsLabel}` : `The free week ends ${endsLabel}`);
 const units = [['d', 'days'], ['h', 'hours'], ['m', 'min'], ['s', 'sec']];
 ---
 <div class:list={['countdown', `countdown--${size}`]} data-countdown={endsAt} data-price={normalPrice}>
-  <p class="countdown__label" data-countdown-label>{size === 'large' ? `Free until ${endsLabel}` : `The free week ends ${endsLabel}`}</p>
+  <p class="countdown__label" data-countdown-label>{text}</p>
   <div class="countdown__clock" aria-hidden="true">
     {units.map(([k, label], i) => (
       <>

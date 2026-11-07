@@ -20,31 +20,39 @@ const productLd = {
   landing
   cta={{ href: reels.optinUrl, label: 'Join free' }}
 >
-  <!-- HERO -->
-  <section class="hero" data-margin="6" aria-labelledby="room-h1">
+  <!-- HERO: VSL. Headline, then the video, then the offer. -->
+  <section class="hero hero--vsl" data-margin="8" aria-labelledby="room-h1">
     <div class="grid">
       <div data-day>
-        <p class="label" data-reveal="fade" data-intro>AI video editing starter kit</p>
+        <p class="label" data-reveal="fade" data-intro>Sound familiar?</p>
         <ol class="schedule" style="margin-top:1rem" aria-label="A reel without the room">
-          <li data-reveal="write" data-intro data-delay="0.35"><span class="time">12:40</span><span>Record a reel on your lunch break</span></li>
-          <li data-reveal="write" data-intro data-delay="0.44"><span class="time">21:12</span><span>Open the editor. Close the editor.</span></li>
+          <li data-reveal="write" data-intro data-delay="0.35"><span class="time">12:40</span><span>Record a reel at lunch</span></li>
+          <li data-reveal="write" data-intro data-delay="0.44"><span class="time">21:12</span><span>Open the editor. Close it.</span></li>
           <li class="is-margin" data-reveal="write" data-intro data-delay="0.53"><span class="time">Day 34</span><span>Still in the camera roll</span></li>
         </ol>
-        <p class="hand" style="margin-top:1.25rem" data-reveal="write" data-intro data-delay="0.8">sound familiar? come on in.</p>
+        <p class="hand" style="margin-top:1.25rem" data-reveal="write" data-intro data-delay="0.8">watch this first. it’s six minutes.</p>
       </div>
       <div data-dream>
-        <h1 id="room-h1" class="xl" data-split="lines" data-intro>{reels.name}</h1>
-        <p class="lead" data-split="lines" data-intro data-delay="0.2">{reels.promise}</p>
-        <div class="offer" data-reveal="fade" data-intro data-delay="0.45">
+        <p class="vsl__kicker" data-reveal="fade" data-intro>{reels.name} · normally {reels.normalPrice}, free for 7 days</p>
+        <h1 id="room-h1" class="vsl__title" data-split="lines" data-intro>Talk to your camera tonight. Post a finished reel tomorrow.</h1>
+        <p class="vsl__step" data-reveal="fade" data-intro data-delay="0.3"><span class="time">Step 1 of 2</span> Watch how it works (about 6 minutes)</p>
+        <!-- PLACEHOLDER: replace with the real VSL embed. -->
+        <div class="vsl" data-reveal="write" data-intro data-delay="0.35">
+          <span class="vsl__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z" /></svg></span>
+          <span class="vsl__note">your video goes here (16:9)</span>
+          <span class="vsl__bar" aria-hidden="true"></span>
+        </div>
+        <p class="vsl__step" data-reveal="fade" data-intro data-delay="0.5"><span class="time">Step 2 of 2</span> Join the room while it’s free</p>
+        <div class="vsl__offer" data-reveal="fade" data-intro data-delay="0.55">
           <p class="price">
             <span class="sr-only">Normally {reels.normalPrice}, now free.</span>
             <span class="price__was" aria-hidden="true">{reels.normalPrice}</span>
             <span class="price__now" aria-hidden="true">Free</span>
-            <span class="hand" aria-hidden="true">for 7 days only</span>
           </p>
-          <Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} />
+          <Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} size="small" label={`Free until ${reels.endsLabel}`} />
           <div class="actions"><Btn href={reels.optinUrl}>Join the room free</Btn></div>
         </div>
+        <p class="body" style="margin-top:1.5rem" data-reveal="fade" data-intro data-delay="0.6">{reels.promise}</p>
       </div>
     </div>
   </section>

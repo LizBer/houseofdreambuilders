@@ -338,3 +338,28 @@ html:not(.margin-live) #loader { display: none; }
 .countdown.is-over .countdown__clock { display: none; }
 html:not(.js) .countdown__clock { display: none; }
 .offer { display: grid; gap: 1.5rem; margin-top: 2.25rem; max-width: 34rem; }
+
+/* ------------------------------------------------------------------ VSL hero */
+.hero--vsl { min-height: auto; padding-top: calc(var(--header) + 2.5rem); }
+.hero--vsl .grid { align-items: start; }
+.hero--vsl [data-day] { padding-top: 9rem; }
+.vsl__kicker { font-size: var(--t-s); font-weight: 600; color: var(--accent-text); }
+.vsl__title { margin-top: 0.75rem; font-size: clamp(2.1rem, 1rem + 2.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; font-weight: 600; margin-left: -0.03em; max-width: 16em; }
+.vsl__step { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; align-items: baseline; margin-top: 2rem; font-weight: 600; font-size: var(--t-s); }
+.vsl__step .time { color: var(--accent-text); }
+.vsl {
+  position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 100%; margin-top: 0.85rem; overflow: hidden;
+  display: grid; place-items: center; align-content: center; gap: 1rem;
+  background: var(--ink); color: var(--ground);
+}
+.vsl__play { width: clamp(64px, 6vw, 88px); aspect-ratio: 1; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; }
+.vsl__play svg { width: 34%; margin-left: 6%; }
+.vsl__note { font-family: var(--f-hand); font-weight: 600; font-size: 1.6rem; color: hsl(27 82% 72%); }
+.vsl__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: hsl(34 45% 96% / 0.18); }
+.vsl__bar::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 8%; background: var(--accent); }
+.vsl__offer { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1.25rem 2rem; margin-top: 0.85rem; }
+.vsl__offer .price__now { font-size: var(--t-l); }
+.vsl__offer .price__was { font-size: var(--t-m); }
+@media (max-width: 899px) {
+  .hero--vsl [data-day] { padding-top: 0; }
+}
