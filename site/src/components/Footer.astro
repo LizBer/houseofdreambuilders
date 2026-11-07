@@ -1,5 +1,5 @@
 ---
-import { site, nav, kit } from '../data/site';
+import { site, nav, kit, reels } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -8,6 +8,7 @@ const year = new Date().getFullYear();
     <ul aria-label="Footer">
       {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
       <li><a href={kit.href}>Free {kit.name}</a></li>
+      <li><a href={reels.href}>{reels.name}</a></li>
       <li><a href={`mailto:${site.email}`}>Email</a></li>
       <li><a href={site.privacy}>Privacy</a></li>
       <li><a href={site.terms}>Terms</a></li>
