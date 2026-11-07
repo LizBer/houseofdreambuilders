@@ -19,7 +19,7 @@ const units = [['d', 'days'], ['h', 'hours'], ['m', 'min'], ['s', 'sec']];
 </div>
 <script>
   import { gsap } from 'gsap';
-  import { onPage } from '../engine';
+  import { onPage, prefersReducedMotion } from '../engine';
   onPage(() => {
     const els = [...document.querySelectorAll<HTMLElement>('[data-countdown]')];
     if (!els.length) return;
@@ -32,7 +32,14 @@ const units = [['d', 'days'], ['h', 'hours'], ['m', 'min'], ['s', 'sec']];
       for (const el of els) {
         const left = Math.max(0, Math.floor((Date.parse(el.dataset.countdown!) - Date.now()) / 1000));
         const v = { d: Math.floor(left / 86400), h: Math.floor(left / 3600) % 24, m: Math.floor(left / 60) % 60, s: left % 60 };
-        el.querySelectorAll<HTMLElement>('[data-unit]').forEach((n) => { n.textContent = pad(v[n.dataset.unit as keyof typeof v]); });
+        el.querySelectorAll<HTMLElement>('[data-unit]').forEach((n) => {
+          const t = pad(v[n.dataset.unit as keyof typeof v]);
+          if (n.textContent === t) return;
+          const first = n.textContent === '--';
+          n.textContent = t;
+          // Each change rolls in from below, like a new frame.
+          if (!first && !prefersReducedMotion()) gsap.fromTo(n, { yPercent: 55, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.45, ease: 'expo.out' });
+        });
         if (left === 0 && !el.classList.contains('is-over')) {
           el.classList.add('is-over');
           const label = el.querySelector('[data-countdown-label]');

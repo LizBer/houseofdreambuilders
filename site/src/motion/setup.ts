@@ -2,6 +2,7 @@
 // header. Runs once on the client, before the first page initializes.
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { startCut } from './cut';
 import { ease, onPage, onScroll, prefersReducedMotion, setLoaderExit, setLoaderFormat, setTransition } from '../engine';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -145,4 +146,5 @@ export function setupMotion() {
   header();
   startMargin();
   caret();
+  startCut();
 }
