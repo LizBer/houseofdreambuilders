@@ -320,3 +320,21 @@ html:not(.margin-live) #loader { display: none; }
 /* ------------------------------------------------------------------ landing opt-in */
 .optin { display: grid; gap: 0.75rem; max-width: 30rem; margin-top: 2rem; }
 .optin__price { font-family: var(--f-time); font-size: 0.875rem; color: var(--accent-text); }
+
+/* ------------------------------------------------------------------ price + countdown */
+.price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem 1rem; }
+.price__was { font-size: var(--t-l); font-weight: 500; color: var(--muted); letter-spacing: -0.02em; padding-inline: 0.1em;
+  background: linear-gradient(to top right, transparent calc(50% - 1.5px), var(--accent) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)); }
+.price__now { font-size: var(--t-xl); font-weight: 600; line-height: 1; letter-spacing: -0.035em; }
+.price .hand { font-size: 1.6rem; }
+.countdown { display: grid; gap: 0.6rem; }
+.countdown__label { font-size: var(--t-s); font-weight: 600; color: var(--ink); }
+.countdown__clock { display: flex; align-items: flex-start; gap: 0.35rem; font-family: var(--f-time); font-variant-numeric: tabular-nums; }
+.countdown__unit { display: grid; justify-items: center; gap: 0.2rem; min-width: 3.4rem; padding: 0.6rem 0.4rem 0.5rem; background: var(--ink); color: var(--ground); }
+.countdown__num { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem); line-height: 1; letter-spacing: -0.04em; }
+.countdown__name { font-size: 0.6875rem; letter-spacing: 0.04em; text-transform: uppercase; color: hsl(34 45% 96% / 0.75); }
+.countdown__sep { font-size: 1.6rem; line-height: 2.2rem; color: var(--accent-text); }
+.countdown--small .countdown__unit { min-width: 2.9rem; }
+.countdown.is-over .countdown__clock { display: none; }
+html:not(.js) .countdown__clock { display: none; }
+.offer { display: grid; gap: 1.5rem; margin-top: 2.25rem; max-width: 34rem; }

@@ -1,0 +1,46 @@
+---
+// Counts down to a fixed deadline. Without JS it shows the end date in words.
+// When the deadline passes, it says so and shows the normal price instead of pretending.
+interface Props { endsAt: string; endsLabel: string; normalPrice: string; size?: 'large' | 'small' }
+const { endsAt, endsLabel, normalPrice, size = 'large' } = Astro.props;
+const units = [['d', 'days'], ['h', 'hours'], ['m', 'min'], ['s', 'sec']];
+---
+<div class:list={['countdown', `countdown--${size}`]} data-countdown={endsAt} data-price={normalPrice}>
+  <p class="countdown__label" data-countdown-label>{size === 'large' ? `Free until ${endsLabel}` : `The free week ends ${endsLabel}`}</p>
+  <div class="countdown__clock" aria-hidden="true">
+    {units.map(([k, label], i) => (
+      <>
+        {i > 0 && <span class="countdown__sep">:</span>}
+        <span class="countdown__unit"><span class="countdown__num" data-unit={k}>--</span><span class="countdown__name">{label}</span></span>
+      </>
+    ))}
+  </div>
+</div>
+<script>
+  import { gsap } from 'gsap';
+  import { onPage } from '../engine';
+  onPage(() => {
+    const els = [...document.querySelectorAll<HTMLElement>('[data-countdown]')];
+    if (!els.length) return;
+    const pad = (n: number) => String(n).padStart(2, '0');
+    let last = -1;
+    const tick = () => {
+      const now = Math.floor(Date.now() / 1000);
+      if (now === last) return; // one update per second, on the shared clock
+      last = now;
+      for (const el of els) {
+        const left = Math.max(0, Math.floor((Date.parse(el.dataset.countdown!) - Date.now()) / 1000));
+        const v = { d: Math.floor(left / 86400), h: Math.floor(left / 3600) % 24, m: Math.floor(left / 60) % 60, s: left % 60 };
+        el.querySelectorAll<HTMLElement>('[data-unit]').forEach((n) => { n.textContent = pad(v[n.dataset.unit as keyof typeof v]); });
+        if (left === 0 && !el.classList.contains('is-over')) {
+          el.classList.add('is-over');
+          const label = el.querySelector('[data-countdown-label]');
+          if (label) label.textContent = `The free week has ended. The room is open at ${el.dataset.price}.`;
+        }
+      }
+    };
+    tick();
+    gsap.ticker.add(tick);
+    return () => gsap.ticker.remove(tick);
+  });
+</script>

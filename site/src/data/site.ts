@@ -108,3 +108,39 @@ export const kit = {
     { q: 'Does it add music?', a: 'Not yet. You add music in Instagram when you post, which keeps you on the right side of licensing.' },
   ],
 };
+
+// The Reels Starters Room: the AI video editing starter kit, as a time-limited free offer.
+// - `endsAt` is a fixed deadline (7 days from launch). Change it when you relaunch.
+//   After it passes, the page says the free offer has ended and shows the normal price.
+// - `optinUrl` is a placeholder: point it at the real sign-up form.
+export const reels = {
+  name: 'The Reels Starters Room',
+  href: '/reels-starters-room/',
+  optinUrl: '#join', // placeholder
+  normalPrice: '€79',
+  endsAt: '2026-11-14T23:59:00+01:00',
+  endsLabel: 'Saturday 14 November, 23:59 (CET)',
+  promise: 'Your AI video editor, set up in your style. Talk to your camera, and get reels back that are cut, captioned and ready to post.',
+  inside: [
+    { title: 'An AI editor that learns your style', text: 'Tell it your colours, fonts and the reels you love once. Every reel after that looks like you.' },
+    { title: 'Stumbles and silences cut for you', text: 'Pause, say it again, keep going. Your best take stays and the rest disappears.' },
+    { title: 'Captions you didn’t have to type', text: 'Word-for-word captions in your look, timed to your voice.' },
+    { title: 'Three designs for every reel', text: 'One clean cut, three styles. You choose, you approve, you post.' },
+    { title: 'A cover and a caption, written from your words', text: 'So the post sounds like you, not like a template.' },
+    { title: 'A clean version without text', text: 'For the days you want to finish it yourself in Instagram or CapCut.' },
+  ],
+  steps: [
+    { cost: '10 min, once', title: 'Set up your style', text: 'A few questions and a few reels you love. Saved for good.' },
+    { cost: 'Whenever', title: 'Record on your phone', text: 'In the car, at lunch, after bedtime. Mistakes included.' },
+    { cost: '2 min', title: 'Drop the videos in a folder', text: 'Ask for your edits and get on with your evening.' },
+    { cost: 'Your pick', title: 'Choose and post', text: 'Finished reels, a cover and a caption are waiting for you.' },
+  ],
+  faq: [
+    { q: 'Why is it free right now?', a: 'I want as many moms as possible to feel what it’s like when AI does the long part. For seven days the room is free. After that it goes back to €79.' },
+    { q: 'What happens when the timer runs out?', a: 'If you joined in time, you keep it. If you didn’t, the room is still open, at the normal price of €79.' },
+    { q: 'I’m not technical. Will I manage?', a: 'Yes. It runs in the Claude app: you open a folder, type “Start”, and click Allow when it asks. After that it’s drop videos in, say “Edit my videos”.' },
+    { q: 'What do I need?', a: 'A Claude account with Claude Code (Pro or Max), the Claude app on a Mac or Windows computer, and any phone to record on.' },
+    { q: 'Are my videos uploaded anywhere?', a: 'No. The editing runs on your own computer, and your recordings stay there.' },
+    { q: 'Does it add music?', a: 'Not yet. Add music in Instagram when you post, which keeps you on the right side of licensing.' },
+  ],
+};

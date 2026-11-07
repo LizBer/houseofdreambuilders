@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import Btn from '../components/Btn.astro';
+import Countdown from '../components/Countdown.astro';
+import { site, reels, program } from '../data/site';
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: reels.name,
+  description: reels.promise,
+  brand: { '@type': 'Brand', name: site.name },
+  url: new URL(reels.href, site.url).href,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', priceValidUntil: reels.endsAt.slice(0, 10) },
+};
+---
+<Base
+  title={reels.name}
+  description={`The AI video editing starter kit for moms who record but never post. Normally ${reels.normalPrice}, free for seven days.`}
+  jsonLd={productLd}
+  landing
+  cta={{ href: reels.optinUrl, label: 'Join free' }}
+>
+  <!-- HERO -->
+  <section class="hero" data-margin="6" aria-labelledby="room-h1">
+    <div class="grid">
+      <div data-day>
+        <p class="label" data-reveal="fade" data-intro>AI video editing starter kit</p>
+        <ol class="schedule" style="margin-top:1rem" aria-label="A reel without the room">
+          <li data-reveal="write" data-intro data-delay="0.35"><span class="time">12:40</span><span>Record a reel on your lunch break</span></li>
+          <li data-reveal="write" data-intro data-delay="0.44"><span class="time">21:12</span><span>Open the editor. Close the editor.</span></li>
+          <li class="is-margin" data-reveal="write" data-intro data-delay="0.53"><span class="time">Day 34</span><span>Still in the camera roll</span></li>
+        </ol>
+        <p class="hand" style="margin-top:1.25rem" data-reveal="write" data-intro data-delay="0.8">sound familiar? come on in.</p>
+      </div>
+      <div data-dream>
+        <h1 id="room-h1" class="xl" data-split="lines" data-intro>{reels.name}</h1>
+        <p class="lead" data-split="lines" data-intro data-delay="0.2">{reels.promise}</p>
+        <div class="offer" data-reveal="fade" data-intro data-delay="0.45">
+          <p class="price">
+            <span class="sr-only">Normally {reels.normalPrice}, now free.</span>
+            <span class="price__was" aria-hidden="true">{reels.normalPrice}</span>
+            <span class="price__now" aria-hidden="true">Free</span>
+            <span class="hand" aria-hidden="true">for 7 days only</span>
+          </p>
+          <Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} />
+          <div class="actions"><Btn href={reels.optinUrl}>Join the room free</Btn></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="sec" data-margin="8" aria-labelledby="inside-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Inside the room</p>
+        <p class="hand" style="margin-top:1.25rem" data-reveal="write">the editing, handled</p>
+      </div>
+      <div data-dream>
+        <h2 id="inside-title" class="l" data-split="lines">Everything between “recorded” and “posted”, done for you</h2>
+        <ul class="ticks" style="margin-top:2.5rem">
+          {reels.inside.map((x, i) => <li data-reveal="up" data-delay={String((i % 2) * 0.06)}><h3>{x.title}</h3><p>{x.text}</p></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT GOES -->
+  <section class="sec sec--tight" data-margin="8" aria-labelledby="how-title">
+    <div class="grid">
+      <div data-day>
+        <h2 id="how-title" class="label">A week in the room</h2>
+      </div>
+      <div data-dream>
+        <ol class="steps">
+          {reels.steps.map((s, i) => (
+            <li data-reveal="write" data-delay={String(i * 0.08)}>
+              <h3>{s.title}</h3>
+              <span class="time">{s.cost}</span>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIZZY -->
+  <section class="sec" data-margin="10" aria-labelledby="why-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Why it’s free this week</p>
+      </div>
+      <div data-dream>
+        <div class="letter">
+          <h2 id="why-title" class="m" data-split="lines">My camera roll used to be full of reels I never had the energy to finish.</h2>
+          <p class="body" data-reveal="up">So I built an editor that already knows my captions, my colours and my pace. It gave me my evenings back, and I want you to feel that too. For seven days, the room is yours for free.</p>
+          <p class="hand sign" data-reveal="write">see you inside, Lizzy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" data-margin="10" id="faq" aria-labelledby="faq-title">
+    <div class="grid">
+      <div data-day>
+        <p class="label">Questions</p>
+      </div>
+      <div data-dream>
+        <h2 id="faq-title" class="l" data-split="lines">Before you join</h2>
+        <div class="faq">
+          {reels.faq.map((f, i) => <details open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINALE -->
+  <section class="sec sec--airy finale" data-margin="full" id="join" aria-labelledby="join-title">
+    <div class="grid">
+      <div data-dream>
+        <h2 id="join-title" class="mega" data-split="lines">Your next reel, finished tonight</h2>
+        <div class="offer" data-reveal="up">
+          <p class="price">
+            <span class="sr-only">Normally {reels.normalPrice}, now free.</span>
+            <span class="price__was" aria-hidden="true">{reels.normalPrice}</span>
+            <span class="price__now" aria-hidden="true">Free</span>
+          </p>
+          <Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} size="small" />
+          <div class="actions">
+            <!-- PLACEHOLDER: point reels.optinUrl at the real sign-up form. -->
+            <Btn href={reels.optinUrl}>Join the room free</Btn>
+          </div>
+        </div>
+        <p class="body" style="margin-top:2.5rem">Ready to build the whole business, not just the reels? <a class="link" href="/#method">See {program.name}</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

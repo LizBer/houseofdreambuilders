@@ -3,8 +3,8 @@ import { site, nav, kit } from '../data/site';
 import Mark from './Mark.astro';
 import Btn from './Btn.astro';
 // `landing`: a focused landing page keeps only the brand and its own call to action.
-interface Props { landing?: boolean }
-const { landing = false } = Astro.props;
+interface Props { landing?: boolean; cta?: { href: string; label: string } }
+const { landing = false, cta = { href: kit.optinUrl, label: 'Get the free kit' } } = Astro.props;
 const path = Astro.url.pathname;
 const isCurrent = (href: string) => !href.includes('#') && path.startsWith(href);
 ---
@@ -22,7 +22,7 @@ const isCurrent = (href: string) => !href.includes('#') && path.startsWith(href)
       </ul>
     )}
     {landing
-      ? <Btn href={kit.optinUrl} small arrow={false}>Get the free kit</Btn>
+      ? <Btn href={cta.href} small arrow={false}>{cta.label}</Btn>
       : <Btn href="/#apply" small arrow={false}>Apply</Btn>}
   </nav>
 </header>
