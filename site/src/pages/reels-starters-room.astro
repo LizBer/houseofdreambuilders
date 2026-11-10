@@ -1,8 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Btn from '../components/Btn.astro';
-import Countdown from '../components/Countdown.astro';
-import { site, reels, program } from '../data/site';
+import { site, reels } from '../data/site';
 // The cut: stumbles are shown with CSS generated content (not in the heading's text), then edited out.
 const headline = 'Talk to your camera tonight. Post a finished reel tomorrow.';
 const stumbles: Record<number, string> = { 3: 'um,', 6: 'uh, wait,' };
@@ -13,12 +12,12 @@ const productLd = {
   description: reels.promise,
   brand: { '@type': 'Brand', name: site.name },
   url: new URL(reels.href, site.url).href,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', priceValidUntil: reels.endsAt.slice(0, 10) },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
 };
 ---
 <Base
   title={reels.name}
-  description={`The AI video editing starter kit for moms who record but never post. Normally ${reels.normalPrice}, free for seven days.`}
+  description={`The AI video editing starter kit for moms who record but never post. Free.`}
   jsonLd={productLd}
   landing
   cta={{ href: reels.optinUrl, label: 'Join free' }}
@@ -30,7 +29,7 @@ const productLd = {
         <p class="hand vsl__aside" data-reveal="write" data-intro data-delay="2.4">watch this first. it’s six minutes.</p>
       </div>
       <div data-dream>
-        <p class="vsl__kicker" data-reveal="fade" data-intro>{reels.name} · normally {reels.normalPrice}, free for 7 days</p>
+        <p class="vsl__kicker" data-reveal="fade" data-intro>{reels.name} · free</p>
         <h1 id="room-h1" class="vsl__title" data-cut>{headline.split(' ').map((w, i) => (
           <><span class="cw">{w}</span>{' '}{stumbles[i] && <><span class="cut" data-text={stumbles[i]} aria-hidden="true"><span class="cut__line"></span></span>{' '}</>}</>
         ))}</h1>
@@ -60,16 +59,9 @@ const productLd = {
         <p class="hand" style="margin-top:1.25rem" data-reveal="write" data-delay="0.3">sound familiar? come on in.</p>
       </div>
       <div data-dream>
-        <h2 id="offer-title" class="l" data-split="lines">The room is free this week</h2>
+        <h2 id="offer-title" class="l" data-split="lines">Join the room, free</h2>
         <div class="offer offer--big">
-          <p class="price" data-reveal="up">
-            <span class="sr-only">Normally {reels.normalPrice}, now free.</span>
-            <span class="price__was" aria-hidden="true">{reels.normalPrice}</span>
-            <span class="price__now" aria-hidden="true">Free</span>
-            <span class="hand" aria-hidden="true">for 7 days only</span>
-          </p>
-          <div data-reveal="up" data-delay="0.08"><Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} /></div>
-          <div class="actions" data-reveal="up" data-delay="0.16"><Btn href={reels.optinUrl}>Join the room free</Btn></div>
+          <div class="actions" data-reveal="up" data-delay="0.08"><Btn href={reels.optinUrl}>Join the room free</Btn></div>
         </div>
         <p class="body" style="margin-top:1.75rem">{reels.promise}</p>
       </div>
@@ -121,7 +113,7 @@ const productLd = {
       <div data-dream>
         <div class="letter">
           <h2 id="why-title" class="m" data-split="lines">My camera roll used to be full of reels I never had the energy to finish.</h2>
-          <p class="body" data-reveal="up">So I built an editor that already knows my captions, my colours and my pace. It gave me my evenings back, and I want you to feel that too. For seven days, the room is yours for free.</p>
+          <p class="body" data-reveal="up">So I built an editor that already knows my captions, my colours and my pace. It gave me my evenings back, and I want you to feel that too. The room is free, because I want you to feel it for yourself.</p>
           <p class="hand sign" data-reveal="write">see you inside, Lizzy</p>
         </div>
       </div>
@@ -148,19 +140,10 @@ const productLd = {
     <div class="grid">
       <div data-dream>
         <h2 id="join-title" class="mega" data-split="lines">Your next reel, finished tonight</h2>
-        <div class="offer" data-reveal="up">
-          <p class="price">
-            <span class="sr-only">Normally {reels.normalPrice}, now free.</span>
-            <span class="price__was" aria-hidden="true">{reels.normalPrice}</span>
-            <span class="price__now" aria-hidden="true">Free</span>
-          </p>
-          <Countdown endsAt={reels.endsAt} endsLabel={reels.endsLabel} normalPrice={reels.normalPrice} size="small" />
-          <div class="actions">
-            <!-- PLACEHOLDER: point reels.optinUrl at the real sign-up form. -->
-            <Btn href={reels.optinUrl}>Join the room free</Btn>
-          </div>
+        <div class="actions" data-reveal="up" data-delay="0.1">
+          <!-- PLACEHOLDER: point reels.optinUrl at the real sign-up form. -->
+          <Btn href={reels.optinUrl}>Join the room free</Btn>
         </div>
-        <p class="body" style="margin-top:2.5rem">Ready to build the whole business, not just the reels? <a class="link" href="/#method">See {program.name}</a></p>
       </div>
     </div>
   </section>

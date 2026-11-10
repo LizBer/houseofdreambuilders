@@ -109,17 +109,13 @@ export const kit = {
   ],
 };
 
-// The Reels Starters Room: the AI video editing starter kit, as a time-limited free offer.
-// - `endsAt` is a fixed deadline (7 days from launch). Change it when you relaunch.
-//   After it passes, the page says the free offer has ended and shows the normal price.
+// The Reels Starters Room: the AI video editing starter kit, free.
+// - Free, no price and no timer.
 // - `optinUrl` is a placeholder: point it at the real sign-up form.
 export const reels = {
   name: 'The Reels Starters Room',
   href: '/reels-starters-room/',
   optinUrl: '#join', // placeholder
-  normalPrice: '€79',
-  endsAt: '2026-11-14T23:59:00+01:00',
-  endsLabel: 'Saturday 14 November, 23:59 (CET)',
   promise: 'Your AI video editor, set up in your style. Talk to your camera, and get reels back that are cut, captioned and ready to post.',
   inside: [
     { title: 'An AI editor that learns your style', text: 'Tell it your colours, fonts and the reels you love once. Every reel after that looks like you.' },
@@ -136,8 +132,7 @@ export const reels = {
     { cost: 'Your pick', title: 'Choose and post', text: 'Finished reels, a cover and a caption are waiting for you.' },
   ],
   faq: [
-    { q: 'Why is it free right now?', a: 'I want as many moms as possible to feel what it’s like when AI does the long part. For seven days the room is free. After that it goes back to €79.' },
-    { q: 'What happens when the timer runs out?', a: 'If you joined in time, you keep it. If you didn’t, the room is still open, at the normal price of €79.' },
+    { q: 'Why is it free?', a: 'I want as many moms as possible to feel what it’s like when AI does the long part. If it gives you your evenings back, that’s the best thanks I can ask for.' },
     { q: 'I’m not technical. Will I manage?', a: 'Yes. It runs in the Claude app: you open a folder, type “Start”, and click Allow when it asks. After that it’s drop videos in, say “Edit my videos”.' },
     { q: 'What do I need?', a: 'A Claude account with Claude Code (Pro or Max), the Claude app on a Mac or Windows computer, and any phone to record on.' },
     { q: 'Are my videos uploaded anywhere?', a: 'No. The editing runs on your own computer, and your recordings stay there.' },
