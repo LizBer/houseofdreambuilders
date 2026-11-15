@@ -3,45 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tend Aftercare, three versions to choose from</title>
-<meta name="description" content="Three warm design versions of the aftercare and C-section cupping website, side by side.">
+<title>Tend Aftercare, three directions to choose from</title>
+<meta name="description" content="Three different designs for the aftercare and C-section cupping site, each built on its own idea.">
+<meta property="og:title" content="Tend Aftercare, three directions">
+<meta property="og:description" content="Three different designs for the aftercare practice, each built on its own idea.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --paper: oklch(96.5% 0.02 50); --ink: oklch(25% 0.045 40); --muted: oklch(48% 0.05 42); --rule: oklch(86% 0.04 45); --focus: oklch(52% 0.16 35); --sans: ui-sans-serif, system-ui, sans-serif; }
-  * { box-sizing: border-box; }
+  :root {
+    --paper: oklch(96.5% 0.018 60); --ink: oklch(26% 0.05 40); --soft: oklch(48% 0.05 42);
+    --rule: oklch(86% 0.035 48); --accent: oklch(52% 0.16 36); --focus: oklch(52% 0.18 36);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
   html, body { overflow-x: clip; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
-  main { max-width: 1320px; margin: 0 auto; padding: 56px 24px 96px; }
-  h1 { margin: 0 0 8px; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
-  .intro { margin: 0 0 48px; color: var(--muted); max-width: 62ch; }
-  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-  a { display: block; color: inherit; text-decoration: none; }
-  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+  main { max-width: 1280px; margin: 0 auto; padding: clamp(40px, 7vw, 88px) clamp(20px, 4vw, 64px) 96px; }
+  h1 { margin: 0 0 12px; font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; max-width: 18ch; }
+  .intro { margin: 0 0 clamp(36px, 6vw, 64px); color: var(--soft); max-width: 64ch; }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+  a { display: grid; gap: 14px; color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
   img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
   a:hover img { border-color: var(--ink); }
-  h2 { margin: 16px 0 4px; font-size: 1.25rem; font-weight: 600; }
-  li p { margin: 0; color: var(--muted); }
+  h2 { margin: 0; font-size: 1.3rem; font-weight: 500; letter-spacing: -0.02em; }
+  .idea { margin: 0; color: var(--soft); }
+  .how { margin: 0; font-size: 0.9375rem; color: var(--accent); }
   @media (max-width: 60rem) { ol { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
 <main>
-  <h1>Three warm versions to choose from</h1>
-  <p class="intro">Same words, three different looks, all in warm colours and written in your voice. Every picture is an empty spot marked with what belongs there, so you can see the shape of the page before you take any photographs.</p>
+  <h1>Three directions, three different ideas</h1>
+  <p class="intro">Not three colour schemes this time. Each one is built on a different idea about what the page is for, so they are laid out, written and read differently. All three are warm, all three keep you at the centre, and every picture is still an empty spot marked with what belongs in it.</p>
   <ol>
-    <li><a href="w1-golden/index.html">
-      <img src="previews/w1-golden.png" width="1440" height="900" alt="Version 1: golden cream page with a tall serif headline and a red button">
-      <h2>Version 1: Golden hour</h2>
-      <p>Cream and honey, deep brown ink, a bold serif. Steady and grown up.</p>
+    <li><a href="a-six-weeks/index.html">
+      <img src="previews/a-six-weeks.png" width="1440" height="900" alt="Version A: a cream page with a large headline about the fourth trimester">
+      <h2>A. The fourth trimester</h2>
+      <p class="idea">The page is the time after birth. Week one, week two, week six, week twelve, and any week after that.</p>
+      <p class="how">The page warms as the weeks pass, and a big week number follows you down.</p>
     </a></li>
-    <li><a href="w2-terracotta/index.html">
-      <img src="previews/w2-terracotta.png" width="1440" height="900" alt="Version 2: soft peach page with rounded corners and a terracotta button">
-      <h2>Version 2: Soft hands</h2>
-      <p>Peach and terracotta, everything rounded and close, like cupped hands.</p>
+    <li><a href="b-the-line/index.html">
+      <img src="previews/b-the-line.png" width="1440" height="900" alt="Version B: a soft peach page with the words where it still pulls in large light type">
+      <h2>B. Where it pulls</h2>
+      <p class="idea">A scar is a line your body drew in a hurry. The page is built on that line, and on the words women actually use.</p>
+      <p class="how">One line runs through the whole page, tight at the top and soft by the end.</p>
     </a></li>
-    <li><a href="w3-rose/index.html">
-      <img src="previews/w3-rose.png" width="1440" height="900" alt="Version 3: blush page with a centred headline reading Come in, mama">
-      <h2>Version 3: Come in, mama</h2>
-      <p>Blush and deep rose, centred like a greeting at the door.</p>
+    <li><a href="c-tell-me/index.html">
+      <img src="previews/c-tell-me.png" width="1440" height="900" alt="Version C: a dark mahogany page asking tell me how are you really">
+      <h2>C. Tell me</h2>
+      <p class="idea">A first visit does not begin with a price list. It begins with someone asking how you are.</p>
+      <p class="how">She picks the words that fit, and the page answers in your voice.</p>
     </a></li>
   </ol>
 </main>
