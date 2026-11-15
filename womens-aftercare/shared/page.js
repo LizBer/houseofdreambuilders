@@ -35,13 +35,13 @@ document.querySelectorAll('form[data-endpoint]').forEach((form) => {
     if (bad) {
       bad.setAttribute('aria-invalid', 'true');
       bad.setAttribute('aria-describedby', help.id);
-      help.textContent = bad.type === 'email' ? 'That address looks incomplete. Write it as name@example.com.' : 'Please add your name so we know who to write to.';
+      help.textContent = bad.type === 'email' ? 'That address looks incomplete. Write it as name@example.com.' : 'Please add your name so I know who to write to.';
       bad.focus();
       return;
     }
     if (!form.dataset.endpoint) { help.textContent = 'Nothing was sent: this form is not connected yet.'; return; }
     fetch(form.dataset.endpoint, { method: 'POST', body: new FormData(form) })
-      .then((r) => { help.textContent = r.ok ? 'Your request is with us. We will write back by email.' : 'That did not go through. Try again in a minute.'; })
+      .then((r) => { help.textContent = r.ok ? 'Thank you. I will write back to you by email.' : 'That did not go through. Try again in a minute.'; })
       .catch(() => { help.textContent = 'That did not go through. Try again in a minute.'; });
   });
 });

@@ -1,26 +1,40 @@
-# Tend Aftercare: three versions
+# Tend Aftercare: three warm versions
 
-Physical and mental aftercare for women after birth, specialised in C-section cupping.
-Open `index.html` to compare the versions. Each version is a plain static page (no build step).
+Loving care for women after birth, body and heart, specialised in C-section cupping.
+Open `index.html` to compare the three. Each is a plain static page, no build step.
+Built with the Hallmark and Awwwards skills. "Tend Aftercare" is a placeholder name.
 
-Built with two skills: Hallmark (theme, layout rules, linter) and Awwwards (concept card, audit).
-"Tend Aftercare" is a placeholder name.
+The focus is the woman, not the baby, and the whole page is written in the owner's
+own voice: "I look after you", never "our team".
 
-| | Version 1: Water light | Version 2: Pattern book | Version 3: A letter |
+| | Version 1: Golden hour | Version 2: Soft hands | Version 3: Come in, mama |
 |---|---|---|---|
-| Folder | `v1-refract/` | `v2-loom/` | `v3-hedgerow/` |
-| Idea | Recovery as still water: calm, clear, unhurried | The treatments laid out like a pattern book, cupping first | A letter to the mother, who is asked about last |
-| Signature | Live water light moving across the hero | The treatment index as the hero | The booking request in the hero, answered by a letter |
-| Emotion | A cool room on a warm afternoon | A craftswoman's quiet confidence | Candlelight, being looked after |
-| Motion | Water drifts slowly; a pause control; still under reduced motion | Nothing moves except state | Still; a booking bar slides in after the hero |
-| Palette | Sunlit white, pool blue | Ecru paper, deep indigo | Deep plum, cream, straw yellow |
-| Type | Funnel Display, Funnel Sans | Libre Caslon Display, Hanken Grotesk | Prata, Manrope |
+| Folder | `w1-golden/` | `w2-terracotta/` | `w3-rose/` |
+| Colours | Cream and honey, deep brown, a red signal | Peach and terracotta | Blush and deep rose |
+| Type | Yeseva One over Archivo | Gloock over Figtree | Libre Bodoni over DM Sans |
+| Feeling | Steady, grown up, like an almanac | Soft and close, everything rounded | A greeting at the door |
+| Opens with | A promise beside a portrait | "Someone to hold you, too." | "Come in, mama. Sit down.", centred |
+| The letter | Under the hero, on a lighter band | Left out; the treatments come first | Under the hero, beside your portrait |
+
+## Photo spots
+
+No photographs yet, by request. Every picture is an empty spot that says what belongs
+there and at what size. Each one carries `data-slot` and `data-alt`, so when you have
+your own pictures they drop straight in without changing the layout:
+
+- `hero`: you, or a mother in your care, in warm light
+- `letter`: your treatment room, or a portrait of you (versions 1 and 3)
+- `room`: your treatment room, wide (version 2)
+- `close`: your hands at work, or the oil and cups, close up
+
+To fill one, put the file in the version folder and either set the `src` on an `<img>`
+inside the spot, or call `hallmarkSlots({ hero: 'my-photo.jpg' })` in the page.
 
 ## To replace before going live
 
 - The business name, in every version.
-- The treatment list: the six treatments are samples.
+- The treatments: the six listed are samples, not your real menu.
 - Studio address and opening hours (the dashed blanks).
-- The booking form: set `data-endpoint` on the `<form>` to a form service URL. Until then it says nothing was sent.
-- The photographs: all are stand-ins from Wikimedia Commons (credited in each footer). Each sits in a `data-slot` whose `data-alt` says what your own photo should show.
+- The booking form: set `data-endpoint` on the `<form>` to a form service URL.
+  Until then it says plainly that nothing was sent, and never pretends it worked.
 - Before launch: favicon, social share image, canonical URL, sitemap.
