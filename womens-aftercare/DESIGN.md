@@ -13,6 +13,15 @@ Version A is the finished site: the real Holi Her brand, your photograph, six pa
 all copy in Dutch, built around the one treatment. B and C are still one-page sketches in English with a different
 structure. If you prefer one of those, the brand and the Dutch copy move across to it.
 
+## Zelf bekijken
+
+```
+node serve.mjs
+```
+
+Dan staat de site op http://localhost:4400 — de keuzepagina met de drie richtingen,
+en Holi Her zelf op http://localhost:4400/a-holiher/. Er is verder niets te installeren.
+
 ## A. Holi Her — `a-holiher/` — de volledige website
 
 De enige versie met het echte merk, en de enige die af is. Zes pagina's, alle tekst in
