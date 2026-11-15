@@ -9,30 +9,59 @@ These are not three skins on one layout. Each is built on a different idea about
 page is for, so they are laid out, written and read differently. All three keep the woman
 at the centre and speak in the owner's own voice ("I look after you", never "our team").
 
-Version A carries the real Holi Her brand and your photograph. B and C are still
-unbranded sketches: if you pick one of those, the logo and colours move across to it.
+Version A is the finished site: the real Holi Her brand, your photograph, seven pages,
+all copy in Dutch. B and C are still one-page sketches in English with a different
+structure. If you prefer one of those, the brand and the Dutch copy move across to it.
 
-## A. Holi Her — `a-holiher/`
+## A. Holi Her — `a-holiher/` — de volledige website
 
-The one version carrying your real brand. Built in the spirit of ever.co.id: a single warm
-ground for the whole page, cream type, nothing decorating the photographs.
+De enige versie met het echte merk, en de enige die af is. Zeven pagina's, alle tekst in
+het Nederlands, in de geest van ever.co.id: één warme grond voor de hele site, crème
+letters, foto's zonder versiering eromheen.
+
+| Pagina | Bestand | Waarvoor |
+|---|---|---|
+| Start | `index.html` | De foto over het hele scherm, de vier behandelingen, de band, vragen, het formulier |
+| Behandelingen | `behandelingen.html` | De vier behandelingen uitgelegd, plus de tarieven (nog leeg) |
+| Cupping | `cupping.html` | De specialisatie: hoe het werkt, hoe het uur verloopt, wat je wel en niet mag verwachten |
+| Over mij | `over-mij.html` | Wie je bent, hoe je werkt, waar je niet voor bent |
+| Vragen | `vragen.html` | Dertien vragen, in drie groepen |
+| Afspraak maken | `afspraak.html` | Contactgegevens, het formulier, wat er daarna gebeurt |
+| 404 | `404.html` | De weg terug |
 
 | | |
 |---|---|
-| Idea | One warm room. The site never leaves the clay ground, so the only things that change are the words and the pictures. |
-| Brand | Your logo's clay and gold. The logo is cut out of its white square and redrawn in cream for the dark ground; the terracotta original is in `brand/` for light backgrounds. |
-| Signature | Your photograph fills the first screen under one serif line, "Your body carried a life." |
-| Layout | Full-bleed hero, a centred statement, a marquee, four numbered treatments alternating with lines in your voice, a staggered band of pictures, questions, then the booking. |
-| Type | Instrument Serif for the one headline and the closing line; Jost light caps for everything else. |
-| Taken from ever.co.id | The single warm ground with cream type, the three-part fixed top bar, the huge serif headline over a tight-cropped photograph, big light all-caps statements, the numbered services, the marquee. |
-| Not taken | Their copy, their photographs and their wordmark. The voice and the content are yours. |
+| Idee | Eén warme kamer. De site verlaat de kleigrond nooit, dus alleen de woorden en de foto's veranderen. |
+| Merk | De klei en het goud van je logo. Het logo is uit zijn witte vierkant geknipt en in crème hertekend voor de donkere grond; het originele terracotta staat ook in `brand/`. |
+| Blikvanger | Jouw foto vult het eerste scherm, met één regel eroverheen: "Jouw lichaam droeg een leven." |
+| Letters | Instrument Serif voor die ene kop en de slotregel; Jost in lichte kapitalen voor de rest. |
+| Overgenomen van ever.co.id | De ene warme grond met crème letters, de driedelige vaste balk bovenaan, de grote schreefkop over een dichtbij genomen foto, de grote lichte kapitalen, de genummerde behandelingen, de lopende band. |
+| Niet overgenomen | Hun teksten, hun foto's en hun woordmerk. De stem en de inhoud zijn van jou. |
 
-### Brand files in `a-holiher/brand/`
+### Wat er nog ingevuld moet worden
 
-- `logo.jpg` — your original.
-- `logo-cream.png`, `logo-word-cream.png`, `logo-mark-cream.png` — cut out, redrawn in cream for the dark ground (used on the page).
-- `logo-terracotta.png`, `logo-mark.png` — cut out, in the original clay and gold, for light backgrounds.
-- `scar.jpg` — your photograph, used full-bleed in the hero.
+Elke lege plek staat op de pagina met een stippellijn eromheen, zodat je ze niet kunt missen:
+
+- Je naam en je achtergrond (`over-mij.html`)
+- Adres, openingstijden, telefoonnummer, e-mailadres (`afspraak.html`)
+- De duur en de prijs van elke afspraak (`behandelingen.html`)
+- Het antwoord over vergoeding door de verzekering (`cupping.html`, `vragen.html`)
+- Het formulier: zet `data-endpoint` op het `<form>` naar een formulierdienst. Zolang dat
+  leeg is zegt het formulier eerlijk dat er niets verstuurd is, en doet het nooit alsof.
+- Een sitemap en een deelafbeelding, zodra er een domeinnaam is.
+
+### Foto's
+
+Eén foto is er: het keizersnedelitteken, over het hele eerste scherm. Alle andere plekken
+zijn leeg en vertellen wat erin hoort en op welk formaat. Zet je eigen bestand in de map en
+roep `hallmarkSlots({ cupping: 'mijn-foto.jpg' })` aan, of zet er een `<img>` in.
+
+### Merkbestanden in `a-holiher/brand/`
+
+- `logo.jpg` — jouw origineel.
+- `logo-cream.png`, `logo-word-cream.png`, `logo-mark-cream.png` — uitgeknipt, in crème, voor de donkere grond (gebruikt op de site).
+- `logo-terracotta.png`, `logo-mark.png` — uitgeknipt, in het originele terracotta en goud, voor lichte achtergronden.
+- `scar.jpg` — jouw foto, over het hele eerste scherm.
 
 ## B. Where it pulls — `b-the-line/`
 
