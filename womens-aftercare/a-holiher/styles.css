@@ -42,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { display: block; max-width: 100%; height: auto; }
-h1, h2, h3 { margin: 0; font-weight: 400; line-height: 1.05; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; min-width: 0; }
+h1, h2, h3 { margin: 0; font-weight: 400; line-height: 1.05; text-wrap: balance; overflow-wrap: break-word; hyphens: manual; min-width: 0; }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
 [hidden] { display: none !important; }
@@ -211,9 +211,13 @@ html:not(.js) .strip__pause { display: none; }
   .top__in { grid-template-columns: 1fr auto; }
   .top__mark { justify-self: start; }
 }
+@media (max-width: 64rem) {
+  /* the hint joins the flow, so it can never meet the fixed bar on the way past */
+  .hero__down { position: static; translate: none; justify-self: center; margin-top: calc(var(--u) * 2); }
+}
 @media (max-width: 40rem) {
   .form { grid-template-columns: minmax(0, 1fr); }
-  .hero__in { padding-block: calc(var(--u) * 16) calc(var(--u) * 12); }
+  .hero__in { padding-block: calc(var(--u) * 16) calc(var(--u) * 8); }
 }
 @media (prefers-reduced-motion: reduce) {
   .btn, .top nav a, .top__act, .qa summary { transition: none; }

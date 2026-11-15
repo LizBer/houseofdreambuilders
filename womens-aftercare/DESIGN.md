@@ -9,23 +9,25 @@ These are not three skins on one layout. Each is built on a different idea about
 page is for, so they are laid out, written and read differently. All three keep the woman
 at the centre and speak in the owner's own voice ("I look after you", never "our team").
 
-Version A is the finished site: the real Holi Her brand, your photograph, seven pages,
-all copy in Dutch. B and C are still one-page sketches in English with a different
+Version A is the finished site: the real Holi Her brand, your photograph, six pages,
+all copy in Dutch, built around the one treatment. B and C are still one-page sketches in English with a different
 structure. If you prefer one of those, the brand and the Dutch copy move across to it.
 
 ## A. Holi Her — `a-holiher/` — de volledige website
 
-De enige versie met het echte merk, en de enige die af is. Zeven pagina's, alle tekst in
+De enige versie met het echte merk, en de enige die af is. Zes pagina's, alle tekst in
 het Nederlands, in de geest van ever.co.id: één warme grond voor de hele site, crème
 letters, foto's zonder versiering eromheen.
 
+Er is één behandeling: cupping bij een keizersnedelitteken. De site gaat daarom niet
+over een aanbod maar over dat ene uur, en wat het met je litteken doet.
+
 | Pagina | Bestand | Waarvoor |
 |---|---|---|
-| Start | `index.html` | De foto over het hele scherm, de vier behandelingen, de band, vragen, het formulier |
-| Behandelingen | `behandelingen.html` | De vier behandelingen uitgelegd, plus de tarieven (nog leeg) |
-| Cupping | `cupping.html` | De specialisatie: hoe het werkt, hoe het uur verloopt, wat je wel en niet mag verwachten |
-| Over mij | `over-mij.html` | Wie je bent, hoe je werkt, waar je niet voor bent |
-| Vragen | `vragen.html` | Dertien vragen, in drie groepen |
+| Start | `index.html` | De foto over het hele scherm, hoe het uur verloopt in vier stappen, waarom cupping, vragen, het formulier |
+| De behandeling | `cupping.html` | De zeven lagen, hoe het uur verloopt, waar het bij helpt, wat je niet belooft, wanneer je beter wacht, de tarieven |
+| Over mij | `over-mij.html` | Wie je bent, waarom je je op dit ene toelegt, waar je niet voor bent |
+| Vragen | `vragen.html` | Vijftien vragen, in drie groepen |
 | Afspraak maken | `afspraak.html` | Contactgegevens, het formulier, wat er daarna gebeurt |
 | 404 | `404.html` | De weg terug |
 
@@ -44,7 +46,7 @@ Elke lege plek staat op de pagina met een stippellijn eromheen, zodat je ze niet
 
 - Je naam en je achtergrond (`over-mij.html`)
 - Adres, openingstijden, telefoonnummer, e-mailadres (`afspraak.html`)
-- De duur en de prijs van elke afspraak (`behandelingen.html`)
+- De duur en de prijs van een afspraak (`cupping.html`)
 - Het antwoord over vergoeding door de verzekering (`cupping.html`, `vragen.html`)
 - Het formulier: zet `data-endpoint` op het `<form>` naar een formulierdienst. Zolang dat
   leeg is zegt het formulier eerlijk dat er niets verstuurd is, en doet het nooit alsof.
