@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tend Aftercare, three versions to choose from</title>
+<meta name="description" content="Three design versions of the aftercare and C-section cupping website, side by side.">
+<style>
+  :root { --paper: oklch(97% 0.005 90); --ink: oklch(22% 0.01 90); --muted: oklch(48% 0.01 90); --rule: oklch(87% 0.008 90); --focus: oklch(50% 0.14 250); --sans: ui-sans-serif, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: clip; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+  main { max-width: 1320px; margin: 0 auto; padding: 56px 24px 96px; }
+  h1 { margin: 0 0 8px; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .intro { margin: 0 0 48px; color: var(--muted); max-width: 60ch; }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  a { display: block; color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+  img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+  a:hover img { border-color: var(--ink); }
+  h2 { margin: 16px 0 4px; font-size: 1.25rem; font-weight: 600; }
+  li p { margin: 0; color: var(--muted); }
+  @media (max-width: 60rem) { ol { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Three versions to choose from</h1>
+  <p class="intro">Same content, three different looks. Open each one, scroll it, try it on your phone, then pick the one that feels like you.</p>
+  <ol>
+    <li><a href="v1-refract/index.html">
+      <img src="previews/v1-refract.png" width="1440" height="900" alt="Version 1: a light page with moving water light above a large headline">
+      <h2>Version 1: Water light</h2>
+      <p>Light and airy, pool blue, with gently moving water in the hero.</p>
+    </a></li>
+    <li><a href="v2-loom/index.html">
+      <img src="previews/v2-loom.png" width="1440" height="900" alt="Version 2: a warm cream page with serif type and a ruled list of treatments">
+      <h2>Version 2: Pattern book</h2>
+      <p>Warm cream paper, classic serif, deep indigo, treatments listed up front.</p>
+    </a></li>
+    <li><a href="v3-hedgerow/index.html">
+      <img src="previews/v3-hedgerow.png" width="1440" height="900" alt="Version 3: a deep plum page with a booking request beside the headline">
+      <h2>Version 3: A letter</h2>
+      <p>Deep plum and straw yellow, candlelit, with a letter to the mother.</p>
+    </a></li>
+  </ol>
+</main>
+</body>
+</html>
