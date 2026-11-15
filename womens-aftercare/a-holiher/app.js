@@ -45,6 +45,35 @@
   sync();
 })();
 
+
+// --- de cijfers --------------------------------------------------------
+(() => {
+  const strip = document.querySelector('.klachten__tabs');
+  if (!strip) return;
+  const tabs = [...strip.querySelectorAll('[role="tab"]')];
+  const show = (tab, focus) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus({ preventScroll: true });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('pointerenter', () => show(tab, false));
+    tab.addEventListener('click', () => show(tab, false));
+    tab.addEventListener('focus', () => show(tab, false));
+    tab.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      show(tabs[(i + step + tabs.length) % tabs.length], true);
+    });
+  });
+})();
+
 // --- het formulier ----------------------------------------------------------
 // Zolang data-endpoint leeg is wordt er niets verstuurd, en dat zegt het ook.
 document.querySelectorAll('form[data-endpoint]').forEach((form) => {

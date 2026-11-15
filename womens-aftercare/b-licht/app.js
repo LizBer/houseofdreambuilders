@@ -21,34 +21,34 @@
   matchMedia('(min-width: 64rem)').addEventListener('change', (e) => { if (e.matches && !panel.hidden) show(false); });
 })();
 
-// --- de zeven lagen ----------------------------------------------------
-// Eén klok: hoe ver de tekening in beeld staat bepaalt hoe ver de lagen uit
-// elkaar schuiven. Buiten beeld gebeurt er niets, en bij minder beweging
-// staat de tekening meteen in haar eindstand.
+// --- de cijfers --------------------------------------------------------
+// Hoveren zoomt in op die klacht, klikken houdt hem vast, pijltjes lopen ze langs.
+// Zonder script staan ze alle vijf onder elkaar.
 (() => {
-  const fig = document.querySelector('[data-layers]');
-  if (!fig) return;
-  const rows = [...fig.querySelectorAll('.layer')];
-  const still = matchMedia('(prefers-reduced-motion: reduce)');
-  const spread = (t) => rows.forEach((row, i) => {
-    row.style.setProperty('--shift', (i * 9 * t).toFixed(1) + 'px');
-  });
-  if (still.matches) { spread(1); return; }
-
-  let seen = false, queued = false;
-  const frame = () => {
-    queued = false;
-    if (!seen) return;
-    const box = fig.getBoundingClientRect();
-    const run = innerHeight * 0.75;
-    const t = Math.min(1, Math.max(0, (run - box.top) / run));
-    spread(t);
+  const strip = document.querySelector('.klachten__tabs');
+  if (!strip) return;
+  const tabs = [...strip.querySelectorAll('[role="tab"]')];
+  const show = (tab, focus) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus({ preventScroll: true });
   };
-  const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(frame); } };
-  new IntersectionObserver(([e]) => { seen = e.isIntersecting; onScroll(); }).observe(fig);
-  addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll, { passive: true });
-  frame();
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('pointerenter', () => show(tab, false));
+    tab.addEventListener('click', () => show(tab, false));
+    tab.addEventListener('focus', () => show(tab, false));
+    tab.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      show(tabs[(i + step + tabs.length) % tabs.length], true);
+    });
+  });
 })();
 
 // --- formulier ---------------------------------------------------------

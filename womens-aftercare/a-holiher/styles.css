@@ -14,6 +14,7 @@
   --cream-dim: #e3cfc0;
   --terracotta: #af5f48;
   --gold: #d9a63d;
+  --gold-soft: #f2d79c;
   --rule: rgba(251, 243, 234, 0.22);
   --focus: #e8c25f;
 
@@ -315,3 +316,81 @@ html:not(.js) .menu { display: none; }
 .link { color: var(--cream); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 0.25em; transition: color 200ms var(--ease); }
 .link:hover { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) { .link { transition: none; } }
+
+/* ---------- landingspagina ---------- */
+.sec { padding-block: clamp(64px, 10vw, 140px); }
+.sec + .sec { border-top: 1px solid var(--rule); }
+.sec--deep { background: var(--clay-deep); border-top: 0; }
+.sec__head { display: grid; gap: calc(var(--u) * 2); margin-bottom: clamp(32px, 5vw, 64px); max-width: 60ch; }
+.sec__head h2 { font-size: var(--t-caps); font-weight: 200; text-transform: uppercase; line-height: 1.1; max-width: 16ch; }
+.sec__head p { color: var(--cream-dim); font-size: var(--t-mid); line-height: 1.55; }
+
+/* de klachten: cijfers links, het verhaal rechts */
+.klachten { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
+.klachten__tabs { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.klachten__tabs button {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: calc(var(--u) * 3); align-items: baseline;
+  width: 100%; min-height: 72px; padding: calc(var(--u) * 2.5) 0; border: 0; border-bottom: 1px solid var(--rule);
+  background: transparent; color: var(--cream-dim); font: 400 var(--t-body)/1.3 var(--sans); text-align: left; cursor: pointer;
+  transition: color 240ms var(--ease), padding-left 300ms var(--ease);
+}
+.klachten__tabs button:hover { color: var(--cream); }
+.klachten__tabs button[aria-selected="true"] { color: var(--cream); padding-left: var(--u); }
+.klacht__nr { font-family: var(--serif); font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1; color: var(--gold); }
+.klacht__titel { font-size: var(--t-mid); }
+html:not(.js) .klachten__tabs { display: none; }
+.klachten__panels { position: sticky; top: calc(var(--u) * 14); }
+.klacht { display: grid; gap: calc(var(--u) * 3); }
+.js .klacht { animation: zoom 420ms var(--ease) both; }
+@keyframes zoom { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.klacht__kop { color: var(--gold-soft); }
+.klacht__kort { font-family: var(--serif); font-size: var(--t-big); line-height: 1.2; color: var(--cream); max-width: 22ch; }
+.klacht__extra { color: var(--cream-dim); max-width: 46ch; }
+html:not(.js) .klachten__panels { position: static; display: grid; gap: calc(var(--u) * 6); }
+@media (prefers-reduced-motion: reduce) { .js .klacht { animation: none; } .klachten__tabs button { transition: none; } }
+
+/* uitkomsten */
+.uit { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 clamp(24px, 4vw, 56px); }
+.uit > div { padding-block: calc(var(--u) * 3); border-top: 1px solid var(--rule); }
+.uit b { display: block; font-weight: 400; font-size: var(--t-mid); }
+.uit span { display: block; margin-top: 6px; color: var(--cream-dim); }
+.niet { margin-top: clamp(36px, 6vw, 64px); padding-top: calc(var(--u) * 3); border-top: 1px solid var(--gold); max-width: 62ch; }
+.niet h3 { font-size: var(--t-label); font-weight: 400; letter-spacing: var(--track); text-transform: uppercase; color: var(--gold-soft); margin-bottom: calc(var(--u) * 2); }
+.niet ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--u); color: var(--cream-dim); }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); }
+.review { display: grid; align-content: center; gap: calc(var(--u) * 1.5); min-height: 220px; padding: calc(var(--u) * 4); margin: 0; border: 1px dashed rgba(251,243,234,.45); }
+.review b { font-family: var(--serif); font-size: var(--t-mid); font-weight: 400; }
+.review span { font-size: var(--t-label); line-height: 1.7; color: var(--cream-dim); }
+.reviews__note { margin-top: clamp(28px, 4vw, 48px); max-width: 64ch; font-size: var(--t-label); line-height: 1.8; color: var(--cream-dim); }
+
+/* het uur */
+.uur { display: grid; counter-reset: s; border-top: 1px solid var(--rule); }
+.uur > div { counter-increment: s; display: grid; grid-template-columns: auto minmax(0, 4fr) minmax(0, 7fr); gap: clamp(16px, 3vw, 48px); align-items: baseline; padding-block: calc(var(--u) * 3); border-bottom: 1px solid var(--rule); }
+.uur > div::before { content: counter(s, decimal-leading-zero); font-family: var(--serif); font-size: var(--t-mid); color: var(--gold); }
+.uur h3 { font-size: var(--t-mid); font-weight: 400; }
+.uur p { color: var(--cream-dim); max-width: 54ch; }
+
+/* prijs */
+.prijs { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 80px); align-items: center; padding: clamp(28px, 4vw, 48px); border: 1px solid var(--gold); }
+.prijs__naam { font-family: var(--serif); font-size: var(--t-big); }
+.prijs__wat { margin-top: 6px; color: var(--cream-dim); }
+.prijs__cijfers { display: flex; flex-wrap: wrap; gap: calc(var(--u) * 5); margin: calc(var(--u) * 3) 0 0; }
+.prijs__cijfers dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); }
+.prijs__cijfers dd { margin: 6px 0 0; font-family: var(--serif); font-size: var(--t-big); }
+.prijs__act { justify-self: end; }
+.prijs__note { margin-top: calc(var(--u) * 3); max-width: 60ch; font-size: var(--t-label); line-height: 1.8; color: var(--cream-dim); }
+
+/* sluit */
+.sluit { padding-block: clamp(64px, 10vw, 140px); border-top: 1px solid var(--rule); }
+.sluit h2 { font-family: var(--serif); font-size: var(--t-caps); line-height: 1.05; max-width: 14ch; }
+.sluit p { margin-top: calc(var(--u) * 3); color: var(--cream-dim); max-width: 40ch; }
+
+@media (max-width: 64rem) {
+  .klachten, .prijs { grid-template-columns: minmax(0, 1fr); }
+  .klachten__panels { position: static; margin-top: calc(var(--u) * 4); }
+  .uur > div { grid-template-columns: auto minmax(0, 1fr); }
+  .uur p { grid-column: 2; }
+  .prijs__act { justify-self: start; }
+}

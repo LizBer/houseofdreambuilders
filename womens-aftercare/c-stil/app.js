@@ -22,11 +22,11 @@
 })();
 
 // --- de draad ---------------------------------------------------------
-// Markeert in de rand welk hoofdstuk je leest. Eén waarnemer, geen scroll-lus.
+// Markeert in de rand welke sectie je leest.
 (() => {
   const links = [...document.querySelectorAll('.thread a')];
-  const chapters = [...document.querySelectorAll('.chapters > [id]')];
-  if (!links.length || !chapters.length) return;
+  const secties = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if (!links.length || !secties.length) return;
   const mark = (id) => links.forEach((a) => {
     if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
     else a.removeAttribute('aria-current');
@@ -35,9 +35,38 @@
     const seen = entries.filter((e) => e.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (seen) mark(seen.target.id);
-  }, { threshold: [0.3, 0.6] });
-  chapters.forEach((c) => io.observe(c));
-  mark(chapters[0].id);
+  }, { threshold: [0.2, 0.5] });
+  secties.forEach((s) => io.observe(s));
+})();
+
+// --- de cijfers --------------------------------------------------------
+// Hoveren zoomt in op die klacht, klikken houdt hem vast, en met de
+// pijltjestoetsen loop je ze langs. Zonder script staan ze alle vijf onder elkaar.
+(() => {
+  const strip = document.querySelector('.klachten__tabs');
+  if (!strip) return;
+  const tabs = [...strip.querySelectorAll('[role="tab"]')];
+  const show = (tab, focus) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus({ preventScroll: true });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('pointerenter', () => show(tab, false));
+    tab.addEventListener('click', () => show(tab, false));
+    tab.addEventListener('focus', () => show(tab, false));
+    tab.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      show(tabs[(i + step + tabs.length) % tabs.length], true);
+    });
+  });
 })();
 
 // --- formulier ---------------------------------------------------------

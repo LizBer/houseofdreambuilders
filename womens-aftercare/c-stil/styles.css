@@ -201,3 +201,83 @@ html:not(.js) .menu { display: none; }
   .chapters { scroll-snap-type: none; }
   .btn, .link, .thread a > span, .thread i, .top nav a, .qa summary { transition: none; }
 }
+
+/* ---------- landingspagina ---------- */
+.sec { padding-block: clamp(70px, 11vw, 150px); border-top: 1px solid var(--rule); }
+.sec--tint { background: var(--ground-2); }
+.sec__head { display: grid; justify-items: center; text-align: center; gap: calc(var(--u) * 2); margin-bottom: clamp(36px, 6vw, 72px); }
+.sec__head h2 { font-size: var(--t-xl); max-width: 18ch; }
+.sec__head p { color: var(--bone-dim); max-width: 52ch; font-size: var(--t-m); line-height: 1.6; }
+
+/* hero over de foto */
+.hero { position: relative; min-height: 100svh; display: grid; align-content: center; justify-items: center; text-align: center; padding-block: clamp(110px, 16vh, 170px) clamp(60px, 10vh, 110px); isolation: isolate; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(28,20,17,.72), rgba(28,20,17,.5) 45%, rgba(28,20,17,.94)); }
+.hero h1 { font-size: var(--t-poster); line-height: 1; max-width: 15ch; }
+.hero .say { margin-top: calc(var(--u) * 4); max-width: 44ch; font-size: var(--t-m); line-height: 1.6; color: var(--bone); }
+.hero .acts { display: flex; flex-wrap: wrap; justify-content: center; gap: calc(var(--u) * 2); margin-top: calc(var(--u) * 5); }
+.hero__note { margin-top: calc(var(--u) * 4); }
+
+/* de klachten: cijfers die inzoomen */
+.klachten__tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: calc(var(--u) * 1.5); margin-bottom: clamp(32px, 5vw, 56px); }
+.klachten__tabs button {
+  display: grid; justify-items: center; gap: 6px; min-width: clamp(110px, 15vw, 190px); min-height: 84px;
+  padding: calc(var(--u) * 2); border: 1px solid var(--rule); border-radius: 2px; background: transparent;
+  color: var(--bone-dim); font: 300 var(--t-body)/1.3 var(--body); cursor: pointer;
+  transition: border-color 260ms var(--ease), color 260ms var(--ease), background-color 260ms var(--ease), transform 260ms var(--ease);
+}
+.klachten__tabs button:hover { color: var(--bone); border-color: var(--bone-dim); }
+.klachten__tabs button[aria-selected="true"] { color: var(--gold); border-color: var(--gold); background: rgba(217,166,61,.07); transform: translateY(-3px); }
+.klacht__nr { font-family: var(--display); font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 1; }
+.klacht__titel { font-size: var(--t-label); letter-spacing: 0.08em; text-transform: uppercase; }
+html:not(.js) .klachten__tabs { display: none; }
+.klachten__panels { max-width: 56ch; margin-inline: auto; text-align: center; }
+.klacht { display: grid; gap: calc(var(--u) * 2); }
+.js .klacht { animation: zoom 420ms var(--ease) both; }
+@keyframes zoom { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .js .klacht { animation: none; } .klachten__tabs button { transition: none; } }
+.klacht__kop { color: var(--gold); }
+.klacht__kort { font-family: var(--display); font-size: var(--t-l); line-height: 1.25; color: var(--bone); }
+.klacht__extra { color: var(--bone-dim); }
+html:not(.js) .klachten__panels { display: grid; gap: calc(var(--u) * 6); text-align: left; max-width: 62ch; }
+
+/* uitkomsten */
+.uit { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 clamp(24px, 4vw, 56px); max-width: 1000px; margin-inline: auto; }
+.uit > div { padding-block: calc(var(--u) * 3); border-top: 1px solid var(--rule); }
+.uit b { display: block; font-weight: 400; font-size: var(--t-m); color: var(--bone); }
+.uit span { display: block; margin-top: 6px; color: var(--bone-dim); }
+.niet { max-width: 60ch; margin: clamp(40px, 6vw, 72px) auto 0; padding-top: calc(var(--u) * 4); border-top: 1px solid var(--gold); text-align: center; }
+.niet h3 { font-family: var(--body); font-size: var(--t-label); font-weight: 400; letter-spacing: var(--track); text-transform: uppercase; color: var(--gold); margin-bottom: calc(var(--u) * 2); }
+.niet ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--u); color: var(--bone-dim); }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); }
+.review { position: relative; display: grid; align-content: center; justify-items: center; gap: calc(var(--u) * 1.5); min-height: 240px; padding: calc(var(--u) * 4); text-align: center; border: 1px dashed rgba(242,232,220,.4); }
+.review b { font-family: var(--display); font-size: var(--t-m); font-weight: 400; color: var(--bone); }
+.review span { font-size: var(--t-label); line-height: 1.6; color: var(--bone-dim); max-width: 30ch; }
+.reviews__note { max-width: 62ch; margin: clamp(32px, 5vw, 56px) auto 0; text-align: center; color: var(--bone-dim); font-size: var(--t-label); line-height: 1.8; }
+
+/* het uur */
+.uur { max-width: 820px; margin-inline: auto; display: grid; counter-reset: s; border-top: 1px solid var(--rule); }
+.uur > div { counter-increment: s; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: calc(var(--u) * 3); padding-block: calc(var(--u) * 3); border-bottom: 1px solid var(--rule); align-items: baseline; }
+.uur > div::before { content: counter(s, decimal-leading-zero); font-family: var(--display); font-size: var(--t-m); color: var(--gold); }
+.uur h3 { font-family: var(--body); font-size: var(--t-m); font-weight: 400; margin-bottom: 4px; }
+.uur p { color: var(--bone-dim); }
+
+/* prijs */
+.prijs { max-width: 620px; margin-inline: auto; padding: clamp(28px, 4vw, 48px); border: 1px solid var(--gold); text-align: center; }
+.prijs__naam { font-family: var(--display); font-size: var(--t-l); }
+.prijs__wat { margin-top: 6px; color: var(--bone-dim); }
+.prijs__cijfers { display: flex; flex-wrap: wrap; justify-content: center; gap: calc(var(--u) * 4); margin: calc(var(--u) * 4) 0; }
+.prijs__cijfers div { display: grid; gap: 6px; }
+.prijs__cijfers dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--bone-dim); }
+.prijs__cijfers dd { margin: 0; font-family: var(--display); font-size: var(--t-l); }
+.prijs .btn { margin-top: var(--u); }
+.prijs__note { margin: calc(var(--u) * 4) auto 0; max-width: 54ch; font-size: var(--t-label); line-height: 1.8; color: var(--bone-dim); }
+.voorwaarden { max-width: 820px; margin: clamp(32px, 5vw, 56px) auto 0; }
+
+/* sluit */
+.sluit { padding-block: clamp(70px, 11vw, 150px); text-align: center; border-top: 1px solid var(--rule); }
+.sluit h2 { font-size: var(--t-xl); max-width: 16ch; margin-inline: auto; }
+.sluit p { margin-top: calc(var(--u) * 3); color: var(--bone-dim); max-width: 40ch; margin-inline: auto; }
+.sluit .acts { display: flex; justify-content: center; margin-top: calc(var(--u) * 4); }
