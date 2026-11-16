@@ -13,9 +13,9 @@
   "puntHint": "Raak een cijfer aan",
   "kaartMeta": "Wat vrouwen vertellen in de eerste afspraak",
   "diensten": {
-   "label": "De behandeling",
-   "titel": "Eén uur, twee manieren om te komen",
-   "onder": "Er is één behandeling: cupping rond je keizersnedelitteken. Je kiest alleen of je één keer komt of een korte reeks doet."
+   "label": "C-Section Treatments",
+   "titel": "Wat een behandeling voor je doet",
+   "onder": "Er is één behandeling: cupping rond je keizersnedelitteken. Geen pakketten met toeters, geen opbouw naar iets anders. Eén uur, jouw buik, mijn handen."
   },
   "verloop": {
    "label": "Hoe het gaat",
@@ -30,7 +30,7 @@
   "ervaringen": {
    "label": "Ervaringen",
    "titel": "Woorden van vrouwen die er lagen",
-   "onder": ""
+   "onder": "Vijf sterren, geschreven door vrouwen die het traject hebben gedaan."
   },
   "prijzen": {
    "label": "Prijzen",
@@ -47,8 +47,8 @@
    "titel": "Wat vrouwen me vooraf vragen",
    "onder": ""
   },
-  "reviewNoot": "Deze drie plekken zijn leeg tot je echte reviews hebt. Vraag na een paar behandelingen of je iemand mag citeren, met haar voornaam, en koppel hier later je Google-reviews aan.",
-  "prijsNoot": "De bedragen vul je zelf in. Zolang ze leeg zijn staat er geen prijs op de site, en dat is beter dan een bedrag dat je later weer moet aanpassen.",
+  "reviewNoot": "Deze reviews staan er woord voor woord zoals ze geschreven zijn, zonder naam. Wil je later de voornaam erbij, of je Google-reviews rechtstreeks inladen, dan kan dat.",
+  "prijsNoot": "De bedragen en het aantal afspraken vul je zelf in zodra je het weet. Zolang ze leeg zijn staat er geen prijs op de site, en dat is beter dan een getal dat je later moet aanpassen.",
   "kaartNoot": "Hier komt de kaart zodra je adres bekend is. Een ingesloten Google-kaart of een eigen plattegrond, allebei goed.",
   "agendaNoot": "Hier komt je agenda. Koppel Calendly, Setmore, Treatwell of je eigen systeem en plak de insluitcode in deze plek; tot die tijd kun je via het formulier hiernaast een afspraak aanvragen.",
   "slotKop": "Kom maar, precies zoals je bent",
@@ -58,7 +58,8 @@
   "disclaimer": "Mijn behandeling staat naast de zorg van je huisarts, verloskundige of therapeut en vervangt die nooit. Voel je je onveilig of erg somber na de bevalling, bel dan je huisarts, de verloskundige of het alarmnummer 112.",
   "altHero": "Een moeder zit op de grond met haar hand op haar buik, het litteken van haar keizersnede zichtbaar, terwijl haar kindje naast haar speelt",
   "altLitteken": "De buik van een vrouw na een keizersnede, het genezen litteken onder haar navel, een zachte handdoek over haar heupen",
-  "altPortret": "Een lachende vrouw zit in het duingras aan zee, in een wit overhemd"
+  "altPortret": "Een lachende vrouw zit in het duingras aan zee, in een wit overhemd",
+  "reviewBron": "Google-review"
  },
  "menu": {
   "probleem": "Wat je merkt",
@@ -179,18 +180,17 @@
   ],
   "diensten": [
    {
-    "naam": "Losse behandeling",
-    "duur": "duur volgt",
-    "prijs": "prijs volgt",
-    "wat": "Eén afspraak, van kennismaken tot behandelen.",
-    "voor": "Goed voor: kennismaken, of een litteken dat al soepel is en af en toe aandacht wil."
-   },
-   {
-    "naam": "Traject van vijf",
-    "duur": "duur volgt",
-    "prijs": "prijs volgt",
-    "wat": "Vijf afspraken, verspreid over een paar weken.",
-    "voor": "Goed voor: een litteken dat trekt, doof voelt of pijn doet. De meeste vrouwen kiezen dit."
+    "naam": "Cupping na een keizersnede",
+    "wat": "Een uur waarin ik met cups rond je litteken werk. Geen ronde cups die blijven staan en plekken achterlaten: ik beweeg ze en zuig licht aan, en ik vraag onderweg steeds hoe het is.",
+    "voorKop": "Waar het goed voor is",
+    "voor": [
+     "Een litteken dat trekt bij opstaan, uitrekken of het tillen van het autostoeltje",
+     "Een strak, hard of verkleefd randje boven of onder de lijn",
+     "Een buik die doof aanvoelt, of juist overgevoelig",
+     "Pijn die maanden na de bevalling nog opkomt",
+     "Het gevoel dat je je litteken liever niet aanraakt of bekijkt",
+     "Tijd en ruimte voor je verhaal, naast de handen"
+    ]
    }
   ],
   "verloop": [
@@ -240,16 +240,13 @@
   ],
   "reviews": [
    {
-    "kop": "Google-review",
-    "tekst": "Haar woorden, haar voornaam, en hoeveel weken of jaren na de bevalling ze kwam."
+    "tekst": "Vandaag de laatste behandeling gehad bij Amber. Wat ben ik dankbaar voor dit traject! Na 3 keizersnedes was ik nieuwsgierig naar hoe een expert naar mijn litteken zou kijken. Ik had geen klachten, maar misschien wel omdat ik niet beter wist en mijn litteken accepteerde zoals het was? Na 5 behandelingen voelt mijn buik een stuk soepeler en ziet mijn litteken er heel rustig en mooi uit. Echt wel een verschil. Daarnaast waren het ook echt fijne me-time momentjes waarin ik bewust stil kon staan bij wat het litteken voor me betekent. Mijn golden scar voor 3 prachtige, gezonde kindjes. Ik voelde me al snel op mijn gemak en er was tijd en ruimte voor mijn verhaal. Nogmaals bedankt en voor alle keizersnede mama’s: gun dit jezelf."
    },
    {
-    "kop": "Google-review",
-    "tekst": "Het liefst iets concreets: wat ze merkte, en waar ze het eerst merkte."
+    "tekst": "Zeer goed en deskundig behandeld door Amber. Stelt je op je gemak, vraagt regelmatig of de behandeling niet te pijnlijk is. Nu nog 3 behandelingen te gaan maar alle vertrouwen dat mijn litteken dan goed behandeld is waarna ik geen klachten meer zal hebben/krijgen in de toekomst."
    },
    {
-    "kop": "Google-review",
-    "tekst": "Mag kort. Twee zinnen van een echte vrouw zeggen meer dan tien van mij."
+    "tekst": "Super geholpen door Amber! Ook fijne tips om zelf te cuppen gekregen."
    }
   ],
   "pakketten": [
@@ -266,13 +263,13 @@
     "uit": false
    },
    {
-    "naam": "Traject van vijf",
-    "wat": "Vijf afspraken",
+    "naam": "Traject",
+    "wat": "Een reeks afspraken",
     "prijs": "prijs volgt",
     "duur": "duur volgt",
     "punten": [
      "Alles van de losse behandeling",
-     "Vijf keer, verspreid over een paar weken",
+     "Verspreid over een paar weken",
      "Tussendoor mailen mag altijd"
     ],
     "uit": true

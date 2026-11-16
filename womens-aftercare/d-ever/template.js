@@ -69,11 +69,10 @@
     // 6. diensten
     const diensten = d.lijsten.diensten.map((r, i) => {
       const n = `lijsten.diensten.${i}`;
-      return `<div class="lijst__rij"><span class="lijst__nr">${String(i + 1).padStart(2, '0')}</span>` +
-        `<div>${T(d, n + '.naam', 'h3')}<dl class="lijst__cijfers">` +
-        `<div><dt>Duur</dt><dd><span class="fill" data-veld="${n}.duur">${esc(r.duur)}</span></dd></div>` +
-        `<div><dt>Prijs</dt><dd><span class="fill" data-veld="${n}.prijs">${esc(r.prijs)}</span></dd></div>` +
-        `</dl></div><div>${T(d, n + '.wat')}${T(d, n + '.voor', 'p', 'lijst__voor')}</div></div>`;
+      const voor = r.voor.map((x, j) => `<li data-veld="${n}.voor.${j}">${esc(x)}</li>`).join('');
+      return `<div class="lijst__rij">` +
+        `<div>${T(d, n + '.naam', 'h3')}${T(d, n + '.wat', 'p', 'lijst__wat')}</div>` +
+        `<div><p class="label">${esc(r.voorKop)}</p><ul class="voor">${voor}</ul></div></div>`;
     }).join('');
     blok.diensten = sectie(d, 'diensten',
       `<div class="wrap">${kop(d, 'tekst.diensten')}<div class="lijst">${diensten}</div></div>`, 'sec sec--diep');
@@ -98,9 +97,12 @@
       `<div class="prose">${verhaal}<dl class="opleiding">${opleiding}</dl></div></div></div>`, 'sec');
 
     // 9. ervaringen
+    const sterren = '<p class="review__sterren" role="img" aria-label="Vijf van de vijf sterren">' +
+      '<span aria-hidden="true">\u2605\u2605\u2605\u2605\u2605</span></p>';
     const reviews = d.lijsten.reviews.map((r, i) =>
-      `<figure class="review"><b data-veld="lijsten.reviews.${i}.kop">${esc(r.kop)}</b>` +
-      `<span data-veld="lijsten.reviews.${i}.tekst">${esc(r.tekst)}</span></figure>`).join('');
+      `<figure class="review">${sterren}` +
+      `<blockquote data-veld="lijsten.reviews.${i}.tekst">${esc(r.tekst)}</blockquote>` +
+      `<figcaption>${esc(d.tekst.reviewBron)}</figcaption></figure>`).join('');
     blok.ervaringen = sectie(d, 'ervaringen',
       `<div class="wrap">${kop(d, 'tekst.ervaringen')}<div class="reviews">${reviews}</div>` +
       T(d, 'tekst.reviewNoot', 'p', 'sec__noot') + `</div>`, 'sec sec--diep');
