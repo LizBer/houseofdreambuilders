@@ -1,4 +1,4 @@
-# Holi Her — drie landingspagina's
+# Holi Her — vier landingspagina's
 
 Eén dienst: cupping bij een keizersnedelitteken. Eén doorlopende pagina per versie,
 dezelfde Nederlandse tekst, drie heel verschillende handschriften. Open `index.html` om ze
@@ -22,11 +22,30 @@ naast elkaar te zien, of start ze met `node serve.mjs` (http://localhost:4400).
 11. **Vragen en twijfels** — tien vragen: pijn, plekken, wanneer niet, hoe vaak, afzeggen
 12. **Afspraak** — ruimte voor je agenda, met het formulier ernaast
 
-## De drie versies
+## D. Zoals ever.co.id — `d-ever/`
 
-| | A. Eén warme kamer | B. Licht | C. Stil |
-|---|---|---|---|
-| Map | `a-holiher/` | `b-licht/` | `c-stil/` |
+Een nabouw van de opbouw van ever.co.id, met jouw merk erin. Dezelfde volgorde en dezelfde
+middelen: één warme grond, een kop over de hele foto, een losse zin, een grote verklaring
+in lichte kapitalen, een lopende band, de genummerde punten op de foto met een kaart die
+wisselt, een genummerde lijst met diensten, en een rustige afsluiting.
+
+**Het hart is de foto met punten.** Vijf knoppen staan op de plek waar de klacht zit: op het
+litteken waar het trekt, op de navel ("niemand kijkt ernaar"), hoger op de buik. Hoveren,
+klikken of tabben wisselt de kaart rechtsonder; de kaart zelf beweegt niet, alleen de
+inhoud. Bij ever zijn die punten gewone `div`'s: met een toetsenbord kom je er niet bij en
+op een telefoon werkt hoveren niet. Hier zijn het knoppen, dus muis, vinger én toetsenbord
+werken, en zonder JavaScript staan alle vijf de teksten gewoon onder elkaar.
+
+**Over de letters.** ever.co.id gebruikt Bradford LL en Maax. Dat zijn betaalde licenties
+die ik niet mag meeleveren, dus staan er twee vrije letters van dezelfde soort:
+Newsreader voor de koppen en Hanken Grotesk voor de tekst. Koop je de originelen, dan
+wissel je alleen `--display` en `--body` boven in `d-ever/styles.css`.
+
+## De vier versies
+
+| | A. Eén warme kamer | B. Licht | C. Stil | D. Zoals ever |
+|---|---|---|---|---|
+| Map | `a-holiher/` | `b-licht/` | `c-stil/` | `d-ever/` |
 | Grond | Klei uit je logo, crème letters | Botkleurig papier, espresso inkt | Bijna zwart espresso, botkleurige letters |
 | Letters | Instrument Serif + Jost | Bodoni Moda + Archivo | Cormorant Garamond + Figtree |
 | Accent | Goud | Terracotta uit je logo | Goud |
