@@ -207,7 +207,7 @@ html:not(.js) .klachten__panels { display: grid; gap: calc(var(--u) * 6); }
 .where { display: grid; gap: calc(var(--u) * 2); margin: calc(var(--u) * 5) 0 0; padding-top: calc(var(--u) * 3); border-top: 1px solid #6b5247; }
 .where dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: #d9c7ba; }
 .where dd { margin: 4px 0 0; }
-.fill { padding: 0 0.3em; border: 1px dashed currentColor; opacity: 0.85; }
+.fill { padding: 0 0.3em; border: 1px dashed currentColor; }
 
 .end { padding-block: clamp(40px, 6vw, 80px) calc(var(--u) * 5); }
 .end__in { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: calc(var(--u) * 4); }
@@ -303,3 +303,120 @@ html:not(.js) .klachten__panels { display: grid; gap: calc(var(--u) * 6); }
   .klacht, .prijs { grid-template-columns: minmax(0, 1fr); }
   .prijs__act { justify-self: start; }
 }
+
+/* ---------- landingspagina, twaalf secties ---------- */
+.sec { padding-block: clamp(56px, 9vw, 120px); border-top: 1px solid var(--rule); }
+.sec > .wrap { display: block; }
+.sec__head { display: grid; gap: calc(var(--u) * 2); margin-bottom: clamp(32px, 5vw, 64px); max-width: 60ch; }
+.sec__head h2 { font-family: var(--display); font-size: var(--t-xl); line-height: 1.04; max-width: 16ch; }
+.sec__head p { color: var(--ink-2); }
+.sec__note { margin-top: calc(var(--u) * 4); max-width: 68ch; font-size: var(--t-label); line-height: 1.8; color: var(--muted); }
+
+/* kop */
+.hero { padding-block: clamp(36px, 5vw, 80px) clamp(40px, 6vw, 90px); }
+.hero__in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero h1 { font-family: var(--display); font-size: var(--t-hero); line-height: 0.98; letter-spacing: -0.02em; margin-top: calc(var(--u) * 2); }
+.hero h1 span { display: block; }
+.hero h1 em { font-style: italic; color: var(--terracotta); }
+.hero__say { margin-top: calc(var(--u) * 3); max-width: 48ch; font-size: var(--t-m); line-height: 1.6; color: var(--ink-2); }
+.hero__acts { display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--u) * 3); margin-top: calc(var(--u) * 4); }
+.hero__link { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+.hero__link:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.hero__foto { margin: 0; }
+.hero__foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 45%; }
+
+/* vertrouwensbalk */
+.trust { padding-block: calc(var(--u) * 5); background: var(--paper-2); border-top: 1px solid var(--rule); }
+.trust__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: calc(var(--u) * 3) clamp(20px, 3vw, 48px); margin: 0; }
+.trust__item { display: grid; gap: 4px; padding-top: calc(var(--u) * 2); border-top: 2px solid var(--ink); }
+.trust__item dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--muted); }
+
+
+.trust__note { margin-top: calc(var(--u) * 4); max-width: 70ch; font-size: var(--t-label); line-height: 1.8; color: var(--muted); }
+
+/* probleem */
+.klachten { background: var(--paper-2); }
+.klachten__foto { margin: 0 0 clamp(32px, 5vw, 56px); }
+.klachten__foto img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 42%; }
+.klachten__tabs { grid-column: auto; }
+.klachten__panels { grid-column: auto; margin-top: clamp(28px, 4vw, 48px); }
+
+/* diensten */
+.diensten__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 3vw, 40px); }
+.dienst { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--rule); background: var(--paper); }
+.dienst h3 { font-family: var(--display); font-size: var(--t-l); }
+.dienst__wat { margin-top: 6px; color: var(--ink-2); }
+.dienst__cijfers { display: flex; flex-wrap: wrap; gap: calc(var(--u) * 4); margin: calc(var(--u) * 3) 0; }
+.dienst__cijfers dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--muted); }
+.dienst__cijfers dd { margin: 6px 0 0; font-family: var(--display); font-size: var(--t-m); }
+.dienst__voor { padding-top: calc(var(--u) * 2); border-top: 1px solid var(--rule); color: var(--ink-2); }
+
+/* verloop */
+.verloop__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.stap { display: grid; gap: var(--u); align-content: start; padding-top: calc(var(--u) * 3); border-top: 2px solid var(--terracotta); }
+.stap h3 { font-family: var(--display); font-size: var(--t-l); }
+.stap p { color: var(--ink-2); }
+
+/* baten */
+.uit { grid-column: auto; }
+.niet { grid-column: auto; max-width: 62ch; }
+
+/* therapeut */
+.therapeut__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.therapeut__foto { margin: 0; }
+.therapeut__foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.prose { display: grid; gap: calc(var(--u) * 3); max-width: 60ch; }
+.prose p { color: var(--ink-2); }
+.prose p.eerste { font-family: var(--display); font-size: var(--t-l); line-height: 1.2; color: var(--ink); max-width: 22ch; }
+.opleiding { display: grid; gap: calc(var(--u) * 2); margin: var(--u) 0 0; padding-top: calc(var(--u) * 3); border-top: 1px solid var(--rule); }
+.opleiding div { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: calc(var(--u) * 2); }
+.opleiding dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--muted); }
+.opleiding dd { margin: 0; }
+
+/* ervaringen */
+.reviews { grid-column: auto; }
+.voorna { margin-top: clamp(40px, 6vw, 72px); padding-top: calc(var(--u) * 4); border-top: 1px solid var(--rule); }
+.voorna h3 { margin-bottom: calc(var(--u) * 3); }
+.voorna__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); }
+
+/* pakketten */
+.pakketten__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.pakket { display: grid; gap: calc(var(--u) * 2); padding: clamp(24px, 3vw, 40px); border: 1px solid var(--rule); background: var(--paper); }
+.pakket--uit { border: 2px solid var(--ink); }
+.pakket h3 { font-family: var(--display); font-size: var(--t-l); }
+.pakket__wat { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--muted); }
+.pakket__prijs { font-family: var(--display); font-size: var(--t-l); color: var(--terracotta-2); }
+.pakket__duur { font-size: var(--t-label); color: var(--muted); }
+.pakket ul { margin: 0; padding-left: 1.1em; display: grid; gap: var(--u); color: var(--ink-2); }
+.pakket li::marker { color: var(--terracotta); }
+.pakket .btn { justify-self: start; margin-top: var(--u); }
+
+/* praktisch */
+.praktisch__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.praktisch .facts { grid-column: auto; }
+.kaart { aspect-ratio: 16 / 10; }
+.agenda { aspect-ratio: 4 / 3; margin-top: calc(var(--u) * 4); }
+
+/* vragen en sluiten */
+.vragen .qa { max-width: 980px; }
+.sluit { padding-block: clamp(56px, 9vw, 120px); border-top: 1px solid var(--rule); }
+.sluit h2 { font-family: var(--display); font-size: var(--t-xl); line-height: 1.04; max-width: 14ch; }
+.sluit p { margin-top: calc(var(--u) * 3); color: var(--ink-2); max-width: 44ch; }
+.begin__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.begin__head { grid-column: auto; }
+.begin__form { grid-column: auto; }
+.begin .spot { background: #3a2a22; }
+.begin .spot::after { border-color: rgba(251,246,240,.4); }
+
+@media (max-width: 64rem) {
+  .hero__in, .therapeut__in, .praktisch__in, .begin__in { grid-template-columns: minmax(0, 1fr); }
+  .klachten__foto img { aspect-ratio: 3 / 2; }
+}
+
+.trust__item dd { margin: 0; display: grid; gap: 4px; }
+.trust__item dd b { font-family: var(--display); font-weight: 400; font-size: var(--t-l); }
+.trust__item dd span { font-size: var(--t-label); color: var(--muted); }
+
+.pakket__duur .fill, .dienst__cijfers .fill { color: var(--ink-2); }
+.begin .spot__label { color: var(--paper); }
+.begin .spot__size { color: #d9c7ba; }

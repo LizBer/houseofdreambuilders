@@ -4,19 +4,23 @@ Eén dienst: cupping bij een keizersnedelitteken. Eén doorlopende pagina per ve
 dezelfde Nederlandse tekst, drie heel verschillende handschriften. Open `index.html` om ze
 naast elkaar te zien, of start ze met `node serve.mjs` (http://localhost:4400).
 
-## De opbouw, bij alle drie hetzelfde
+## De twaalf secties, bij alle drie hetzelfde
 
-1. **Kop** — de belofte, één regel, met de knop
-2. **Het probleem** — vijf cijfers, 01 tot 05. Hoveren, klikken of tabben zoomt in op die
-   klacht: het trekt · gevoelig of juist gevoelloos · niemand kijkt ernaar · het doet pijn ·
-   het doet iets met je
-3. **De verandering** — waar je naartoe werkt, zes uitkomsten, plus wat er níet beloofd wordt
-4. **Wat vrouwen zeggen** — ruimte voor reviews (nog leeg, zie hieronder)
-5. **De behandeling** — wat cupping is en hoe het uur verloopt in vier stappen
-6. **Mijn verhaal** — wie je bent en waarom je je op dit ene toelegt
-7. **De prijs** — één behandeling, één tarief, met de voorwaarden eronder
-8. **Vragen en twijfels** — negen vragen die mensen tegenhouden, eerlijk beantwoord
-9. **Afspraak** — het formulier en je gegevens
+1. **Kop** — de uitkomst, met de boekknop en de foto van moeder en kind
+2. **Vertrouwensbalk** — Google-cijfer, aantal vrouwen, opleiding, jaren ervaring (nog leeg)
+3. **Het probleem** — vijf cijfers, 01 tot 05. Hoveren, klikken of tabben zoomt in: het trekt ·
+   gevoelig of juist gevoelloos · niemand kijkt ernaar · het doet pijn · het doet iets met je.
+   Met de foto van het litteken erboven
+4. **De behandeling** — losse behandeling en traject van vijf, elk met duur, prijs en een
+   regel "goed voor"
+5. **Hoe het gaat** — vooraf, tijdens en daarna, inclusief wat je mee naar huis krijgt
+6. **Wat het je kan geven** — zes uitkomsten, plus wat er níet beloofd wordt
+7. **Over mij** — je portret, je verhaal, en je opleiding in een rij
+8. **Ervaringen** — drie Google-reviews en twee voor-en-na-foto's (nog leeg)
+9. **Prijzen** — losse behandeling, traject van vijf en cadeaubon
+10. **Praktisch** — adres, parkeren, openingstijden, telefoon, WhatsApp, e-mail en de kaart
+11. **Vragen en twijfels** — tien vragen: pijn, plekken, wanneer niet, hoe vaak, afzeggen
+12. **Afspraak** — ruimte voor je agenda, met het formulier ernaast
 
 ## De drie versies
 
@@ -26,7 +30,7 @@ naast elkaar te zien, of start ze met `node serve.mjs` (http://localhost:4400).
 | Grond | Klei uit je logo, crème letters | Botkleurig papier, espresso inkt | Bijna zwart espresso, botkleurige letters |
 | Letters | Instrument Serif + Jost | Bodoni Moda + Archivo | Cormorant Garamond + Figtree |
 | Accent | Goud | Terracotta uit je logo | Goud |
-| Kop | Foto over het hele scherm, tekst erover | Redactionele split: tekst links, foto breed eronder | Foto over het hele scherm, tekst gecentreerd |
+| Kop | Foto over het hele scherm, tekst erover | Tekst links, foto rechts | Foto over het hele scherm, tekst gecentreerd |
 | De vijf cijfers | Lijst links, verhaal zoomt rechts in | Rij over de volle breedte, verhaal valt eronder open | Kaartjes naast elkaar, verhaal gecentreerd eronder |
 | Extra | Lopende band met pauzeknop | Terracotta streep boven het gekozen cijfer | Gouden draad langs de rand die meeloopt |
 
@@ -39,13 +43,15 @@ misleidend, ze zijn ook meteen te herkennen.
 
 ## Wat er nog ingevuld moet worden
 
-Elke ontbrekende feit staat op de pagina met een stippellijn eromheen:
+Elk ontbrekend feit staat op de pagina met een stippellijn eromheen:
 
-- Je naam en je achtergrond (Mijn verhaal)
-- Adres, openingstijden, telefoonnummer (Afspraak)
-- De duur en de prijs van een afspraak (De prijs)
-- Het antwoord over vergoeding door de verzekering (Vragen)
-- De drie reviews
+- Google-cijfer, aantal behandelde vrouwen, opleiding en jaren ervaring (vertrouwensbalk)
+- Je naam, opleiding, bijscholing en beroepsvereniging (Over mij)
+- Duur en prijs van de losse behandeling, het traject en de cadeaubon
+- Adres, parkeren, openingstijden, telefoon, WhatsApp en e-mail, plus de kaart
+- Het antwoord over vergoeding door de verzekering
+- Drie reviews en twee voor-en-na-foto's
+- De insluitcode van je agenda (Calendly, Setmore, Treatwell of je eigen systeem)
 - Het formulier: zet `data-endpoint` op het `<form>` naar een formulierdienst. Zolang dat
   leeg is zegt het formulier eerlijk dat er niets verstuurd is, en doet het nooit alsof.
 - Een sitemap en een deelafbeelding, zodra er een domeinnaam is

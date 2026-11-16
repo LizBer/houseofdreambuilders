@@ -4,6 +4,26 @@
  * Serif is kept for the one headline that matters; everything else is light caps.
  * Motion verb: nothing hurries. Things appear, they do not perform. */
 
+@font-face {
+  /* zodat de kop niet verspringt zodra Instrument Serif binnen is */
+  font-family: "Instrument fallback";
+  src: local("Georgia"), local("Times New Roman"), local("Liberation Serif");
+  size-adjust: 103%;
+  ascent-override: 95%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  /* zodat de balk bovenin niet verspringt zodra Jost binnen is */
+  font-family: "Jost fallback";
+  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 91.3%;
+  ascent-override: 100%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
 :root {
   color-scheme: dark;
 
@@ -18,8 +38,8 @@
   --rule: rgba(251, 243, 234, 0.22);
   --focus: #e8c25f;
 
-  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --serif: "Instrument Serif", "Instrument fallback", Georgia, "Times New Roman", serif;
+  --sans: "Jost", "Jost fallback", ui-sans-serif, system-ui, sans-serif;
 
   --u: 8px;
   --gutter: clamp(20px, 4vw, 72px);
@@ -394,3 +414,88 @@ html:not(.js) .klachten__panels { position: static; display: grid; gap: calc(var
   .uur p { grid-column: 2; }
   .prijs__act { justify-self: start; }
 }
+
+/* ---------- landingspagina, twaalf secties ---------- */
+.hero__say { margin-top: calc(var(--u) * 3); max-width: 50ch; font-size: var(--t-mid); line-height: 1.55; color: var(--cream); }
+.hero__acts { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: calc(var(--u) * 3); margin-top: calc(var(--u) * 5); }
+.hero__link { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+.hero__link:hover { color: var(--gold-soft); border-color: var(--gold-soft); }
+.sec__note { margin-top: calc(var(--u) * 4); max-width: 68ch; font-size: var(--t-label); line-height: 1.8; color: var(--cream-dim); }
+
+/* 2. vertrouwensbalk */
+.trust { background: var(--clay-deep); padding-block: calc(var(--u) * 5); }
+.trust__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: calc(var(--u) * 3) clamp(20px, 3vw, 48px); margin: 0; }
+.trust__item { display: grid; gap: 4px; padding-left: calc(var(--u) * 3); border-left: 1px solid var(--rule); }
+.trust__item:first-child { padding-left: 0; border-left: 0; }
+.trust__item dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); }
+
+
+.trust__note { margin-top: calc(var(--u) * 4); max-width: 70ch; font-size: var(--t-label); line-height: 1.8; color: var(--cream-dim); }
+
+/* 3. foto bij het probleem */
+.klachten__foto { margin: 0 0 clamp(32px, 5vw, 56px); }
+.klachten__foto img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 42%; }
+
+/* 4. diensten */
+.diensten__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 3vw, 40px); }
+.dienst { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--rule); }
+.dienst h3 { font-family: var(--serif); font-size: var(--t-big); font-weight: 400; }
+.dienst__wat { margin-top: 6px; color: var(--cream-dim); }
+.dienst__cijfers { display: flex; flex-wrap: wrap; gap: calc(var(--u) * 4); margin: calc(var(--u) * 3) 0; }
+.dienst__cijfers dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); }
+.dienst__cijfers dd { margin: 6px 0 0; font-family: var(--serif); font-size: var(--t-mid); }
+.dienst__voor { padding-top: calc(var(--u) * 2); border-top: 1px solid var(--rule); color: var(--cream-dim); }
+
+/* 5. verloop */
+.verloop__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.stap { display: grid; gap: var(--u); align-content: start; padding-top: calc(var(--u) * 3); border-top: 1px solid var(--gold); }
+.stap h3 { font-family: var(--serif); font-size: var(--t-big); font-weight: 400; }
+.stap p { color: var(--cream-dim); }
+
+/* 7. therapeut */
+.therapeut__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 80px); align-items: center; }
+.therapeut__foto { margin: 0; }
+.therapeut__foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.prose { display: grid; gap: calc(var(--u) * 3); max-width: 60ch; }
+.prose p { color: var(--cream-dim); }
+.prose p.eerste { font-family: var(--serif); font-size: var(--t-big); line-height: 1.2; color: var(--cream); max-width: 22ch; }
+.opleiding { display: grid; gap: calc(var(--u) * 2); margin: var(--u) 0 0; padding-top: calc(var(--u) * 3); border-top: 1px solid var(--rule); }
+.opleiding div { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: calc(var(--u) * 2); }
+.opleiding dt { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); }
+.opleiding dd { margin: 0; }
+
+/* 8. voor en na */
+.voorna { margin-top: clamp(40px, 6vw, 72px); padding-top: calc(var(--u) * 4); border-top: 1px solid var(--rule); }
+.voorna h3 { margin-bottom: calc(var(--u) * 3); }
+.voorna__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); }
+
+/* 9. pakketten */
+.pakketten__rij { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.pakket { display: grid; gap: calc(var(--u) * 2); padding: clamp(24px, 3vw, 40px); border: 1px solid var(--rule); }
+.pakket--uit { border-color: var(--gold); background: var(--clay-deep); }
+.pakket h3 { font-family: var(--serif); font-size: var(--t-big); font-weight: 400; }
+.pakket__wat { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; color: var(--cream-dim); }
+.pakket__prijs { font-family: var(--serif); font-size: var(--t-big); color: var(--gold-soft); }
+.pakket__duur { font-size: var(--t-label); color: var(--cream-dim); }
+.pakket ul { margin: 0; padding-left: 1.1em; display: grid; gap: var(--u); color: var(--cream-dim); }
+.pakket li::marker { color: var(--gold); }
+.pakket .btn { justify-self: start; margin-top: var(--u); }
+
+/* 10. praktisch */
+.praktisch__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.kaart { aspect-ratio: 16 / 10; }
+.agenda { aspect-ratio: 4 / 3; margin-top: calc(var(--u) * 4); }
+
+@media (max-width: 64rem) {
+  .therapeut__in, .praktisch__in { grid-template-columns: minmax(0, 1fr); }
+  .trust__item { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); padding-top: calc(var(--u) * 2); }
+  .trust__item:first-child { border-top: 1px solid var(--rule); padding-top: calc(var(--u) * 2); }
+  .klachten__foto img { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 40rem) {
+  .opleiding div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+
+.trust__item dd { margin: 0; display: grid; gap: 4px; }
+.trust__item dd b { font-family: var(--serif); font-weight: 400; font-size: var(--t-big); color: var(--gold-soft); }
+.trust__item dd span { font-size: var(--t-label); color: var(--cream-dim); }
