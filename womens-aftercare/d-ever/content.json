@@ -91,11 +91,11 @@
    "schaal": 1
   },
   "verklaring": {
-   "aan": true,
+   "aan": false,
    "schaal": 1
   },
   "band": {
-   "aan": true,
+   "aan": false,
    "schaal": 1
   },
   "probleem": {
