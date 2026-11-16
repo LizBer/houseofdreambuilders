@@ -127,6 +127,10 @@
      Alleen voor jou: wie de site kan bewerken, krijgt onderaan een balk.
      Je verandert tekst door erin te typen, en maakt een sectie groter of
      kleiner met de knoppen. Opslaan bewaart een nieuwe versie van de pagina. */
+  // De kop van het document leg ik vast vóórdat de bewerkmodus er iets aan
+  // toevoegt, zodat de balk zelf nooit mee opgeslagen wordt.
+  const skeletKop = document.head.innerHTML;
+
   const gegevensNode = kies('#holi-data');
   if (!gegevensNode || !window.HOLI) return;
   let staat;
@@ -153,7 +157,7 @@
 
   function volledigDocument() {
     const romp = window.HOLI.render(staat);
-    return '<!doctype html><html><head>' + document.head.innerHTML + '</head><body>\n' + romp + '\n</body></html>';
+    return '<!doctype html><html><head>' + skeletKop + '</head><body>\n' + romp + '\n</body></html>';
   }
 
   (async function bewerken() {
