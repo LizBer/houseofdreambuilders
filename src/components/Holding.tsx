@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 // Holding page while the business is being rebuilt.
-// Logo: drop the real file at public/logo.png (PNG, SVG-as-PNG, transparent background works best).
-// Until it exists, a temporary mark is shown.
+// Logo: public/logo.png. If that file is ever missing, a temporary mark is shown instead.
 const INSTAGRAM_HANDLE = 'thelizzybermudez';
 
 function TempMark() {

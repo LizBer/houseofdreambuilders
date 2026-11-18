@@ -23,4 +23,4 @@ View your app in AI Studio: https://ai.studio/apps/739381ca-3b1c-403e-9be9-243eb
 
 The home page is a holding page ("Reinventing") with an Instagram link. The previous home page
 is archived in `src/archive/home-2026-11/` (see the README there to restore it). Any other
-address redirects to `/`. To use the real logo, add it as `public/logo.png`.
+address redirects to `/`. The logo is `public/logo.png` (also used as the browser-tab icon).

@@ -29,7 +29,7 @@ html, body { margin: 0; background: hsl(34 45% 96%); }
 
 .h-brand > span { background: linear-gradient(var(--accent) 0 0) left bottom / 0% 2px no-repeat; transition: background-size 0.45s var(--ease); }
 .h-brand__mark, .h-brand__logo { width: 30px; height: 30px; flex: none; }
-.h-brand__logo { object-fit: contain; width: auto; max-width: 56px; height: 34px; }
+.h-brand__logo { object-fit: contain; width: auto; height: 42px; }
 .h-brand:focus-visible > span { background-size: 100% 2px; }
 @media (hover: hover) { .h-brand:hover > span { background-size: 100% 2px; } }
 
