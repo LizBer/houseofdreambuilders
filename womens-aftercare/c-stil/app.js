@@ -31,11 +31,16 @@
     if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
     else a.removeAttribute('aria-current');
   });
+  // Onthoud hoeveel van elke sectie in beeld is. Staat er niets van de rand in beeld
+  // (de ondertitel, "Hoe het gaat", "Praktisch"), dan lichten we niets op in plaats
+  // van de vorige sectie te laten staan.
+  const zicht = new Map();
   const io = new IntersectionObserver((entries) => {
-    const seen = entries.filter((e) => e.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (seen) mark(seen.target.id);
-  }, { threshold: [0.2, 0.5] });
+    entries.forEach((e) => zicht.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+    const best = [...zicht.entries()].sort((a, b) => b[1] - a[1])[0];
+    if (best && best[1] >= 0.15) mark(best[0]);
+    else links.forEach((a) => a.removeAttribute('aria-current'));
+  }, { threshold: [0, 0.2, 0.5] });
   secties.forEach((s) => io.observe(s));
 })();
 

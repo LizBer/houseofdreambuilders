@@ -354,3 +354,35 @@ html:not(.js) .klachten__panels { display: grid; gap: calc(var(--u) * 6); text-a
 .trust__item dd { margin: 0; display: grid; gap: 4px; justify-items: center; }
 .trust__item dd b { font-family: var(--display); font-weight: 400; font-size: var(--t-l); color: var(--gold); }
 .trust__item dd span { font-size: var(--t-label); color: var(--bone-dim); }
+
+/* ——— Gelijk aan versie D: ondertitel, behandeling en reviews ——— */
+.behandeling { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 5vw, 80px); padding-block: clamp(30px, 4vw, 54px); border-block: 1px solid var(--rule); }
+.behandeling__tekst p { margin-top: 1em; max-width: 42ch; line-height: 1.7; }
+.behandeling .label { margin-bottom: 1.2em; }
+.voor { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.voor li { position: relative; padding-left: 28px; line-height: 1.6; }
+.voor li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 14px; height: 1px; background: currentColor; opacity: 0.7; }
+@media (max-width: 54rem) { .behandeling { grid-template-columns: minmax(0, 1fr); } }
+.reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.review { min-height: 0; align-content: start; justify-items: start; text-align: left; border-style: solid; gap: calc(var(--u) * 2.5); padding: clamp(24px, 2.8vw, 38px); }
+.review:first-child { grid-column: 1 / -1; padding: clamp(28px, 3.4vw, 54px); }
+.review__sterren { margin: 0; font-size: 1rem; letter-spacing: 0.22em; }
+.review blockquote { margin: 0; max-width: 62ch; text-wrap: pretty; line-height: 1.45; }
+.review blockquote::before { content: "\201c"; }
+.review blockquote::after { content: "\201d"; }
+.review figcaption { font-size: var(--t-label); letter-spacing: var(--track); text-transform: uppercase; }
+@media (max-width: 54rem) { .reviews { grid-template-columns: minmax(0, 1fr); } }
+
+/* C: donker en filmisch */
+.ondertitel { padding-block: clamp(90px, 15vw, 200px); border-top: 1px solid var(--rule); }
+.ondertitel__tekst { max-width: 40ch; margin-inline: auto; text-align: center; font-family: var(--display); font-size: clamp(1.7rem, 3.6vw, 3.1rem); font-weight: 300; line-height: 1.22; color: var(--bone); text-wrap: pretty; }
+.behandeling { max-width: 1100px; margin-inline: auto; }
+.behandeling__tekst p { color: var(--bone-dim); }
+.behandeling h3 { font-family: var(--display); font-size: var(--t-l); }
+.voor li { color: var(--bone); }
+.voor li::before { background: var(--gold); opacity: 1; }
+.reviews { max-width: 1100px; margin-inline: auto; }
+.review { border-color: var(--rule); background: var(--ground-2); }
+.review__sterren, .review figcaption { color: var(--gold); }
+.review blockquote { font-family: var(--display); font-size: clamp(1.1rem, 1.5vw, 1.4rem); color: var(--bone); }
+.review:first-child blockquote { font-size: clamp(1.25rem, 2vw, 1.8rem); }
