@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praktijk Voorbeeld, een behandeling die klopt voor jou</title>
+<meta name="description" content="Voorbeeldsite van de starter kit. Vervang deze tekst door één zin over wat je doet en voor wie.">
+<meta property="og:title" content="Praktijk Voorbeeld, een behandeling die klopt voor jou">
+<meta property="og:description" content="Voorbeeldsite van de starter kit. Vervang deze tekst door één zin over wat je doet en voor wie.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#7a4e3e">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Hanken+Grotesk:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Ga naar de inhoud</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <button class="top__menu" type="button" data-menu-open aria-expanded="false" aria-controls="menu"><span></span>Menu</button>
+    <a class="top__mark" href="#top" aria-label="Praktijk Voorbeeld"><span class="wordmark">Praktijk Voorbeeld</span></a>
+    <a class="top__act" href="#booking">Boek je afspraak</a>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <button class="menu__close" type="button" data-menu-close>Sluiten</button>
+    <a href="#hotspots">Wat je merkt</a>
+    <a href="#behandeling">De behandeling</a>
+    <a href="#steps">Hoe het gaat</a>
+    <a href="#about">Over mij</a>
+    <a href="#reviews">Ervaringen</a>
+    <a href="#pricing">Prijzen</a>
+    <a href="#practical">Praktisch</a>
+    <a href="#faq">Vragen</a>
+    <a href="#booking">Boek je afspraak</a>
+</div>
+
+<main id="main">
+<section class="s-hero" id="top" data-type="hero"><figure class="slot hero__img" data-slot="sections.0.image"><span class="slot__label">Hier komt: Een warme foto van de mensen voor wie je werkt, of van jou aan het werk</span></figure>
+  <div class="wrap hero__in">
+    <h1>Een duidelijke belofte, in één zin.</h1>
+    
+    <div class="hero__acts"><a class="btn" href="#booking">Boek je afspraak</a></div>
+  </div>
+  <a class="hero__scroll" href="#statement">Lees verder</a>
+</section>
+
+<section class="s-statement" id="statement" data-type="statement"><div class="wrap"><p class="statement__text">Eén of twee zinnen die de bezoeker laten zien dat jij begrijpt wat er speelt. Begin bij haar of hem, niet bij jezelf.</p></div></section>
+
+<section class="s-hotspots" id="hotspots" data-type="hotspots">
+  <div class="hotspots__stage" style="--ratio:4 / 3">
+    <div class="hotspots__photo"><figure class="slot hotspots__img" data-slot="sections.2.image"><span class="slot__label">Hier komt: Een foto waarop de klachten zichtbaar of aanwijsbaar zijn, ruim en rustig</span></figure>
+      <div class="hotspots__points" role="tablist" aria-label="Wat mensen ervaren"><button class="point" type="button" role="tab" id="hotspots-t01" aria-controls="hotspots-p01" aria-selected="true" style="left:30%;top:40%"><span class="vh">Eerste herkenbare klacht, </span>01</button><button class="point" type="button" role="tab" id="hotspots-t02" aria-controls="hotspots-p02" aria-selected="false" tabindex="-1" style="left:62%;top:34%"><span class="vh">Tweede klacht, </span>02</button><button class="point" type="button" role="tab" id="hotspots-t03" aria-controls="hotspots-p03" aria-selected="false" tabindex="-1" style="left:48%;top:66%"><span class="vh">Derde klacht, </span>03</button></div>
+    </div>
+    <div class="hotspots__zone"><p class="hotspots__hint">Raak een cijfer aan</p><div class="hotspots__cards"><div class="hotspots__panel" role="tabpanel" id="hotspots-p01" aria-labelledby="hotspots-t01">
+      <p class="hotspots__title"><span class="hotspots__nr">01</span><span>Eerste herkenbare klacht</span></p>
+      <p>Beschrijf in een of twee zinnen hoe het voelt, in de woorden van je klant.</p><p>Eén zin over wat dat in het dagelijks leven doet.</p></div><div class="hotspots__panel" role="tabpanel" id="hotspots-p02" aria-labelledby="hotspots-t02" hidden>
+      <p class="hotspots__title"><span class="hotspots__nr">02</span><span>Tweede klacht</span></p>
+      <p>Weer in haar of zijn woorden, niet in vakjargon.</p></div><div class="hotspots__panel" role="tabpanel" id="hotspots-p03" aria-labelledby="hotspots-t03" hidden>
+      <p class="hotspots__title"><span class="hotspots__nr">03</span><span>Derde klacht</span></p>
+      <p>Iets wat mensen niet snel hardop zeggen, maar wel herkennen.</p></div></div></div>
+  </div>
+</section>
+
+<section class="sec s-offering sec--alt" id="behandeling" data-type="offering"><div class="wrap"><div class="sec__head"><p class="label">Wat ik doe</p><h2>Wat een behandeling voor je doet</h2><p class="sec__intro">Zeg eerlijk wat je aanbiedt. Eén behandeling die je goed doet is sterker dan een menukaart.</p></div><div class="offers"><article class="offer"><div class="offer__main"><h3>Naam van de behandeling</h3><p>Twee zinnen over hoe de behandeling gaat en hoe het voelt.</p></div><div class="offer__good"><p class="label">Waar het goed voor is</p><ul class="ticks"><li>Eerste situatie waarin het helpt</li><li>Tweede situatie</li><li>Derde situatie</li></ul></div></article></div></div></section>
+
+<section class="sec s-steps" id="steps" data-type="steps"><div class="wrap"><div class="sec__head"><p class="label">Hoe het gaat</p><h2>Van je eerste bericht tot de dagen erna</h2></div><div class="steps"><div class="step"><p class="label">Vooraf</p><h3>We schrijven kort</h3><p>Wat er vooraf gebeurt, en wanneer iemand antwoord krijgt.</p></div><div class="step"><p class="label">Tijdens</p><h3>De afspraak zelf</h3><p>Wat iemand kan verwachten, in gewone woorden.</p></div><div class="step"><p class="label">Daarna</p><h3>Mee naar huis</h3><p>Wat iemand na afloop meekrijgt en waar ze terechtkan met vragen.</p></div></div></div></section>
+
+<section class="sec s-about" id="about" data-type="about"><div class="wrap"><div class="sec__head"><p class="label">Wie je ontvangt</p><h2>Een kop die over jouw aanpak gaat</h2></div><div class="about"><figure class="about__photo"><figure class="slot about__img" data-slot="sections.5.image"><span class="slot__label">Hier komt: Een portret van jou, gezicht goed zichtbaar</span></figure></figure><div class="prose"><p class="lead">Ik ben <span class="fill" data-fill="sections.5.paragraphs.0">je naam</span>, en ik werk met <span class="fill" data-fill="sections.5.paragraphs.0">je doelgroep</span>.</p><p>Vertel hier waarom je dit doet, in je eigen woorden. Mensen kopen van mensen.</p><p>Zeg ook wat je niet doet. Dat maakt de rest geloofwaardiger.</p><dl class="facts facts--small"><div><dt>Opleiding</dt><dd><span class="fill" data-fill="sections.5.facts.0.v">volgt</span></dd></div><div><dt>Bijscholing</dt><dd><span class="fill" data-fill="sections.5.facts.1.v">volgt</span></dd></div><div><dt>Aangesloten bij</dt><dd><span class="fill" data-fill="sections.5.facts.2.v">volgt</span></dd></div></dl></div></div></div></section>
+
+<section class="sec s-reviews sec--alt" id="reviews" data-type="reviews"><div class="wrap"><div class="sec__head"><p class="label">Ervaringen</p><h2>Woorden van mensen die er waren</h2></div><div class="reviews"></div><p class="sec__note">Alleen echte reviews, woord voor woord overgenomen en met de bron erbij. Heb je ze nog niet, laat de lijst dan leeg: de sectie verdwijnt vanzelf van de live site.</p></div></section>
+
+<section class="sec s-pricing" id="pricing" data-type="pricing"><div class="wrap"><div class="sec__head"><p class="label">Prijzen</p><h2>Wat het kost</h2></div><div class="plans"><article class="plan"><h3>Losse afspraak</h3><p class="plan__for">Eén keer komen</p>
+      <p class="plan__price"><span class="fill" data-fill="sections.7.plans.0.price">volgt</span></p><p class="plan__duration"><span class="fill" data-fill="sections.7.plans.0.duration">volgt</span></p>
+      <ul class="ticks"><li>Wat erbij zit</li><li>Nog iets dat erbij zit</li></ul><a class="btn" href="#booking">Boek nu</a></article><article class="plan plan--featured"><h3>Traject</h3><p class="plan__for">Een reeks afspraken</p>
+      <p class="plan__price"><span class="fill" data-fill="sections.7.plans.1.price">volgt</span></p><p class="plan__duration"><span class="fill" data-fill="sections.7.plans.1.duration">volgt</span></p>
+      <ul class="ticks"><li>Alles van de losse afspraak</li><li>Verspreid over een paar weken</li></ul><a class="btn" href="#booking">Boek nu</a></article></div><p class="sec__note">Prijzen staan er pas als jij ze weet. Een prijs die je later moet aanpassen is erger dan geen prijs.</p></div></section>
+
+<section class="sec s-practical sec--alt" id="practical" data-type="practical"><div class="wrap"><div class="sec__head"><p class="label">Praktisch</p><h2>Waar je me vindt</h2></div><div class="practical"><dl class="facts"><div><dt>Adres</dt><dd><span class="fill" data-fill="sections.8.facts.0.v">volgt</span></dd></div><div><dt>Parkeren</dt><dd><span class="fill" data-fill="sections.8.facts.1.v">volgt</span></dd></div><div><dt>Openingstijden</dt><dd><span class="fill" data-fill="sections.8.facts.2.v">volgt</span></dd></div><div><dt>Telefoon</dt><dd><span class="fill" data-fill="sections.8.facts.3.v">volgt</span></dd></div><div><dt>E-mail</dt><dd><span class="fill" data-fill="sections.8.facts.4.v">volgt</span></dd></div></dl><figure class="slot map" data-slot="sections.8.map"><span class="slot__label">Hier komt: Een kaart van de buurt, zodra het adres bekend is</span></figure></div></div></section>
+
+<section class="sec s-faq" id="faq" data-type="faq"><div class="wrap"><div class="sec__head"><p class="label">Vragen</p><h2>Wat mensen me vooraf vragen</h2></div><div class="qa"><details open><summary>Doet het pijn?</summary><p>Zeg eerlijk wat iemand voelt, en dat ze altijd kunnen zeggen dat het te veel is.</p></details><details><summary>Wanneer kan ik beter niet komen?</summary><p>Noem de situaties waarin je liever eerst overleg hebt met een arts.</p></details><details><summary>Hoe vaak moet ik komen?</summary><p>Wees eerlijk dat het per persoon verschilt, en hoe jullie dat samen bepalen.</p></details><details><summary>En als ik moet afzeggen?</summary><p>Wat je afspraken zijn, in gewone woorden.</p></details></div></div></section>
+
+<section class="sec s-booking" id="booking" data-type="booking"><div class="wrap"><h2>Kom maar, precies zoals je bent</h2><p class="booking__text">Eén zin die het laatste duwtje geeft. Daaronder kiest iemand zelf een moment, of stuurt een bericht.</p><figure class="slot booking__widget" data-slot="booking"><span class="slot__label">Hier komt: Je agenda, bijvoorbeeld de boekingsmodule van je boekingssysteem</span></figure><div class="booking__form"><form class="form" data-unconnected novalidate><label class="" for="f-name"><span>Je naam</span><input id="f-name" name="name" required autocomplete="name" type="text"></label><label class="" for="f-email"><span>E-mailadres</span><input id="f-email" name="email" required autocomplete="email" type="email" inputmode="email"></label><label class="wide" for="f-message"><span>Wat speelt er bij jou</span><textarea id="f-message" name="message" rows="3"></textarea></label><div class="form__foot wide"><button class="btn" type="submit">Afspraak aanvragen</button><p class="help" id="form-help" aria-live="polite"></p></div><p class="form__note wide">Wat je invult gebruik ik alleen om je terug te mailen.</p></form></div></div></section>
+</main>
+
+<footer class="foot wrap">
+  <p class="foot__line">Praktijk Voorbeeld</p>
+  
+  <p class="foot__small">Voorbeeldtekst. Zet hier wat jouw praktijk moet zeggen over de grenzen van wat je doet, bijvoorbeeld dat je de zorg van een huisarts niet vervangt.</p>
+</footer>
+
+<script type="application/json" id="labels">{"notConnected":"Er is niets verstuurd: dit formulier is nog niet aangesloten.","needName":"Vul je naam in.","needEmail":"Dat e-mailadres lijkt nog niet compleet.","pause":"Pauzeer","play":"Laat lopen"}</script>
+<script src="app.js"></script>
+</body>
+</html>

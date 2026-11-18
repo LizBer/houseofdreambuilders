@@ -1,0 +1,33 @@
+/* Structure only. This file is added in front of every theme, so a theme can change how the
+   site LOOKS but cannot break how it WORKS (hotspot positions, the menu, no-script fallback). */
+*, *::before, *::after { box-sizing: border-box; }
+img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -64px; z-index: 100; padding: 12px 18px; background: #fff; color: #000; transition: top .2s; }
+.skip:focus { top: 16px; }
+
+/* hotspots: the points sit at x/y percent of the PHOTO (its own box), so they stay on the same
+   spot at any width, even when the card moves below the photo on a phone */
+.hotspots__stage { position: relative; }
+.hotspots__photo { position: relative; }
+.hotspots__photo > img, .hotspots__photo > .slot { width: 100%; height: auto; }
+.hotspots__photo > .slot { aspect-ratio: var(--ratio, 4 / 3); }
+.hotspots__points { position: absolute; inset: 0; z-index: 1; }
+.point { position: absolute; translate: -50% -50%; cursor: pointer; }
+.hotspots__zone { position: absolute; inset: 0; z-index: 2; pointer-events: none; display: flex; align-items: flex-end; }
+.hotspots__zone > * { pointer-events: auto; }
+
+/* photo slots: a visible, labelled gap, never a fake picture */
+.slot { display: grid; place-items: center; margin: 0; padding: 24px; min-height: 220px; border: 1px dashed currentColor; text-align: center; }
+.hero__img.slot { position: absolute; inset: 0; min-height: 0; }
+
+/* no script: everything is shown, nothing depends on JavaScript */
+html:not(.js) .hotspots__points, html:not(.js) .hotspots__hint, html:not(.js) .menu, html:not(.js) .top__menu { display: none !important; }
+html:not(.js) .hotspots__zone { position: static; display: block; }
+html:not(.js) .hotspots__panel[hidden] { display: block !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}

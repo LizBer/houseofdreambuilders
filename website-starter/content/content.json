@@ -1,0 +1,158 @@
+{
+  "site": {
+    "status": "draft",
+    "theme": "warm",
+    "lang": "nl",
+    "name": "Praktijk Voorbeeld",
+    "title": "Praktijk Voorbeeld, een behandeling die klopt voor jou",
+    "description": "Voorbeeldsite van de starter kit. Vervang deze tekst door één zin over wat je doet en voor wie.",
+    "url": "",
+    "indexable": false,
+    "icon": "",
+    "logo": { "src": "", "alt": "Praktijk Voorbeeld" },
+    "cta": { "label": "Boek je afspraak", "short": "Boek nu", "href": "#booking" },
+    "integrations": {
+      "booking": { "embed": "", "slot": "Je agenda, bijvoorbeeld de boekingsmodule van je boekingssysteem" },
+      "form": { "provider": "", "endpoint": "" }
+    },
+    "footer": {
+      "line": "Praktijk Voorbeeld",
+      "links": [],
+      "disclaimer": "Voorbeeldtekst. Zet hier wat jouw praktijk moet zeggen over de grenzen van wat je doet, bijvoorbeeld dat je de zorg van een huisarts niet vervangt."
+    }
+  },
+
+  "sections": [
+    {
+      "type": "hero",
+      "heading": "Een duidelijke belofte, in één zin.",
+      "text": "",
+      "image": { "src": "", "alt": "", "slot": "Een warme foto van de mensen voor wie je werkt, of van jou aan het werk" }
+    },
+    {
+      "type": "statement",
+      "text": "Eén of twee zinnen die de bezoeker laten zien dat jij begrijpt wat er speelt. Begin bij haar of hem, niet bij jezelf."
+    },
+    {
+      "type": "hotspots",
+      "nav": "Wat je merkt",
+      "pointsLabel": "Wat mensen ervaren",
+      "hint": "Raak een cijfer aan",
+      "image": { "src": "", "alt": "", "slot": "Een foto waarop de klachten zichtbaar of aanwijsbaar zijn, ruim en rustig" },
+      "points": [
+        { "x": 30, "y": 40, "title": "Eerste herkenbare klacht", "text": "Beschrijf in een of twee zinnen hoe het voelt, in de woorden van je klant.", "more": "Eén zin over wat dat in het dagelijks leven doet." },
+        { "x": 62, "y": 34, "title": "Tweede klacht", "text": "Weer in haar of zijn woorden, niet in vakjargon.", "more": "" },
+        { "x": 48, "y": 66, "title": "Derde klacht", "text": "Iets wat mensen niet snel hardop zeggen, maar wel herkennen.", "more": "" }
+      ]
+    },
+    {
+      "type": "offering",
+      "id": "behandeling",
+      "nav": "De behandeling",
+      "tone": "alt",
+      "label": "Wat ik doe",
+      "title": "Wat een behandeling voor je doet",
+      "intro": "Zeg eerlijk wat je aanbiedt. Eén behandeling die je goed doet is sterker dan een menukaart.",
+      "items": [
+        {
+          "name": "Naam van de behandeling",
+          "text": "Twee zinnen over hoe de behandeling gaat en hoe het voelt.",
+          "goodFor": {
+            "title": "Waar het goed voor is",
+            "list": ["Eerste situatie waarin het helpt", "Tweede situatie", "Derde situatie"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "steps",
+      "nav": "Hoe het gaat",
+      "label": "Hoe het gaat",
+      "title": "Van je eerste bericht tot de dagen erna",
+      "items": [
+        { "when": "Vooraf", "title": "We schrijven kort", "text": "Wat er vooraf gebeurt, en wanneer iemand antwoord krijgt." },
+        { "when": "Tijdens", "title": "De afspraak zelf", "text": "Wat iemand kan verwachten, in gewone woorden." },
+        { "when": "Daarna", "title": "Mee naar huis", "text": "Wat iemand na afloop meekrijgt en waar ze terechtkan met vragen." }
+      ]
+    },
+    {
+      "type": "about",
+      "nav": "Over mij",
+      "label": "Wie je ontvangt",
+      "title": "Een kop die over jouw aanpak gaat",
+      "image": { "src": "", "alt": "", "slot": "Een portret van jou, gezicht goed zichtbaar" },
+      "paragraphs": [
+        "Ik ben [[je naam]], en ik werk met [[je doelgroep]].",
+        "Vertel hier waarom je dit doet, in je eigen woorden. Mensen kopen van mensen.",
+        "Zeg ook wat je niet doet. Dat maakt de rest geloofwaardiger."
+      ],
+      "facts": [
+        { "k": "Opleiding", "v": null },
+        { "k": "Bijscholing", "v": null },
+        { "k": "Aangesloten bij", "v": null }
+      ]
+    },
+    {
+      "type": "reviews",
+      "nav": "Ervaringen",
+      "tone": "alt",
+      "label": "Ervaringen",
+      "title": "Woorden van mensen die er waren",
+      "intro": "",
+      "note": "Alleen echte reviews, woord voor woord overgenomen en met de bron erbij. Heb je ze nog niet, laat de lijst dan leeg: de sectie verdwijnt vanzelf van de live site.",
+      "items": []
+    },
+    {
+      "type": "pricing",
+      "nav": "Prijzen",
+      "label": "Prijzen",
+      "title": "Wat het kost",
+      "note": "Prijzen staan er pas als jij ze weet. Een prijs die je later moet aanpassen is erger dan geen prijs.",
+      "plans": [
+        { "name": "Losse afspraak", "for": "Eén keer komen", "price": null, "duration": null, "points": ["Wat erbij zit", "Nog iets dat erbij zit"] },
+        { "name": "Traject", "for": "Een reeks afspraken", "price": null, "duration": null, "featured": true, "points": ["Alles van de losse afspraak", "Verspreid over een paar weken"] }
+      ]
+    },
+    {
+      "type": "practical",
+      "nav": "Praktisch",
+      "tone": "alt",
+      "label": "Praktisch",
+      "title": "Waar je me vindt",
+      "facts": [
+        { "k": "Adres", "v": null },
+        { "k": "Parkeren", "v": null },
+        { "k": "Openingstijden", "v": null },
+        { "k": "Telefoon", "v": null, "href": "" },
+        { "k": "E-mail", "v": null, "href": "" }
+      ],
+      "map": { "embed": "", "slot": "Een kaart van de buurt, zodra het adres bekend is" }
+    },
+    {
+      "type": "faq",
+      "nav": "Vragen",
+      "label": "Vragen",
+      "title": "Wat mensen me vooraf vragen",
+      "items": [
+        { "q": "Doet het pijn?", "a": "Zeg eerlijk wat iemand voelt, en dat ze altijd kunnen zeggen dat het te veel is." },
+        { "q": "Wanneer kan ik beter niet komen?", "a": "Noem de situaties waarin je liever eerst overleg hebt met een arts." },
+        { "q": "Hoe vaak moet ik komen?", "a": "Wees eerlijk dat het per persoon verschilt, en hoe jullie dat samen bepalen." },
+        { "q": "En als ik moet afzeggen?", "a": "Wat je afspraken zijn, in gewone woorden." }
+      ]
+    },
+    {
+      "type": "booking",
+      "title": "Kom maar, precies zoals je bent",
+      "text": "Eén zin die het laatste duwtje geeft. Daaronder kiest iemand zelf een moment, of stuurt een bericht.",
+      "form": {
+        "button": "Afspraak aanvragen",
+        "note": "Wat je invult gebruik ik alleen om je terug te mailen.",
+        "fields": [
+          { "name": "name", "label": "Je naam", "type": "text", "autocomplete": "name", "required": true },
+          { "name": "email", "label": "E-mailadres", "type": "email", "autocomplete": "email", "required": true },
+          { "name": "message", "label": "Wat speelt er bij jou", "type": "textarea", "wide": true }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Netlify runs the build for you on every change to the repo.
+# In "live" status the build FAILS if the site is not ready, so an unfinished site is never published.
+[build]
+  command = "node build.mjs"
+  publish = "site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
